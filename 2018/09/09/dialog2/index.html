@@ -115,20 +115,23 @@
 
 
 
-  <meta name="description" content="一、绘制矩形对话框在绘制如上图这样一个带等边三角形的气泡对话框之前，我们先绘制一个矩形，并将这个矩形加上边框（border），使它成为一个描边的矩形。 代码如下： 123456789101112131415161718192021&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;g">
-<meta name="keywords" content="html,div,CSS,对话框,三角形">
+  <meta name="keywords" content="html,div,CSS,对话框,三角形">
 <meta property="og:type" content="article">
-<meta property="og:title" content="纯CSS 描边等边三角形 + 描边矩形 气泡对话框">
+<meta property="og:title" content="纯CSS 描边三角形 + 描边矩形 气泡对话框">
 <meta property="og:url" content="http://yoursite.com/2018/09/09/dialog2/index.html">
 <meta property="og:site_name" content="White&#39;s Blog">
-<meta property="og:description" content="一、绘制矩形对话框在绘制如上图这样一个带等边三角形的气泡对话框之前，我们先绘制一个矩形，并将这个矩形加上边框（border），使它成为一个描边的矩形。 代码如下： 123456789101112131415161718192021&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;g">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img6.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img1.png">
-<meta property="og:updated_time" content="2018-09-09T08:17:01.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img3.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img4.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img5.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img6.png">
+<meta property="og:updated_time" content="2018-09-09T09:40:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="纯CSS 描边等边三角形 + 描边矩形 气泡对话框">
-<meta name="twitter:description" content="一、绘制矩形对话框在绘制如上图这样一个带等边三角形的气泡对话框之前，我们先绘制一个矩形，并将这个矩形加上边框（border），使它成为一个描边的矩形。 代码如下： 123456789101112131415161718192021&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;g">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/09/dialog2/img1.png">
+<meta name="twitter:title" content="纯CSS 描边三角形 + 描边矩形 气泡对话框">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/09/dialog2/img6.png">
 
 
 
@@ -145,7 +148,7 @@
   };
 </script>
 
-  <title>纯CSS 描边等边三角形 + 描边矩形 气泡对话框 | White's Blog</title>
+  <title>纯CSS 描边三角形 + 描边矩形 气泡对话框 | White's Blog</title>
   
 
 
@@ -338,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">纯CSS 描边等边三角形 + 描边矩形 气泡对话框
+          <h1 class="post-title" itemprop="name headline">纯CSS 描边三角形 + 描边矩形 气泡对话框
               
             
           </h1>
@@ -363,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2018-09-09 16:01:35 / 修改时间：16:17:01" itemprop="dateCreated datePublished" datetime="2018-09-09T16:01:35+08:00">2018-09-09</time>
+              <time title="创建时间：2018-09-09 16:01:35 / 修改时间：17:40:47" itemprop="dateCreated datePublished" datetime="2018-09-09T16:01:35+08:00">2018-09-09</time>
             
 
             
@@ -381,7 +384,7 @@
 
           
           
-             <span id="/2018/09/09/dialog2/" class="leancloud_visitors" data-flag-title="纯CSS 描边等边三角形 + 描边矩形 气泡对话框">
+             <span id="/2018/09/09/dialog2/" class="leancloud_visitors" data-flag-title="纯CSS 描边三角形 + 描边矩形 气泡对话框">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,12 +415,51 @@
       
 
       
-        <h3 id="一、绘制矩形对话框"><a href="#一、绘制矩形对话框" class="headerlink" title="一、绘制矩形对话框"></a>一、绘制矩形对话框</h3><p>在绘制如上图这样一个带等边三角形的气泡对话框之前，我们先绘制一个矩形，并将这个矩形加上边框（border），使它成为一个描边的矩形。</p>
+        <p><img src="/2018/09/09/dialog2/img6.png" alt=""></p>
+<a id="more"></a>
+<blockquote>
+<p>我们先说一下这个描边三角形 + 描边矩形的气泡对话框实现的思路：</p>
+<p>①设置矩形带边框 描边 ；</p>
+<p>②添加伪元素before ；</p>
+<p>在里面添加一个实心的三角形A (颜色为矩形边框色）</p>
+<p>③添加伪元素after；</p>
+<p> 在实心的三角形A上添加一个小三角形B （颜色为矩形背景色），将A覆盖，只留两个边</p>
+</blockquote>
+<h3 id="一、绘制矩形对话框"><a href="#一、绘制矩形对话框" class="headerlink" title="一、绘制矩形对话框"></a>一、绘制矩形对话框</h3><p>在绘制如上图这样一个带三角形的气泡对话框之前，我们先绘制一个矩形，并将这个矩形加上边框（border），使它成为一个描边的矩形。</p>
 <p>代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>纯CSS 描边等边三角形 + 描边矩形 气泡对话框<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .two &#123;</span></span><br><span class="line"><span class="undefined">            width: 250px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            line-height: 100px;</span></span><br><span class="line"><span class="undefined">            margin: 0 auto;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            border-radius: 10px;</span></span><br><span class="line"><span class="undefined">            border: 10px solid #A7A7DB;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>三角形在左侧的对话框<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>纯CSS 描边三角形 + 描边矩形 气泡对话框<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .two &#123;</span></span><br><span class="line"><span class="undefined">            width: 250px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            line-height: 100px;</span></span><br><span class="line"><span class="undefined">            margin: 0 auto;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            border-radius: 10px;</span></span><br><span class="line"><span class="undefined">            border: 10px solid #A7A7DB;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>三角形在左侧的对话框<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2018/09/09/dialog2/img1.png" alt=""></p>
 <hr>
-<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3>
+<h3 id="二、绘制三角形箭头A"><a href="#二、绘制三角形箭头A" class="headerlink" title="二、绘制三角形箭头A"></a>二、绘制三角形箭头A</h3><p>然后我们绘制该气泡对话框的箭头三角形A</p>
+<p>如何绘制三角形详情可以<em><a href="https://timor419.github.io/2018/09/09/triangle-border/" target="_blank" rel="noopener">点击此处查看</a></em></p>
+<p>①我们给矩形添加一个伪元素，在这个伪元素中绘制三角形A；</p>
+<p>②由于此次我们绘制的三角形箭头在矩形框左侧，所以我们保留的是矩形左侧的边</p>
+<p>CSS代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.two:before &#123;</span><br><span class="line">    /*伪元素必须添加content*/</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    display: block;</span><br><span class="line">    border-width: 20px;</span><br><span class="line">    /*保留我们需要的那边的三角形，其他三角形设置为透明*/</span><br><span class="line">    border-color: transparent pink transparent transparent;</span><br><span class="line">    border-style: dashed solid dashed dashed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/09/dialog2/img2.png" alt=""></p>
+<hr>
+<h3 id="三、调整三角形箭头的位置"><a href="#三、调整三角形箭头的位置" class="headerlink" title="三、调整三角形箭头的位置"></a>三、调整三角形箭头的位置</h3><p>我们通过CSS定位（position）来移动三角形箭头A位置，将三角形移到矩形框的左侧。可以运用子绝父相的原理来进行定位。</p>
+<p>①在三角形的父元素中添加相对定位；</p>
+<p>②在伪元素中添加绝对定位。</p>
+<p>CSS代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.two &#123;</span><br><span class="line">    position: relative; /*子绝父相*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.two:before &#123;</span><br><span class="line">    position: absolute; /*绝对定位不占位置*/ </span><br><span class="line">    top: 30%; /*相对于矩形高度的位置*/</span><br><span class="line">    left: -50px; /* 向左移动 矩形的左边框 + 自己边框*2 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/09/dialog2/img3.png" alt=""></p>
+<hr>
+<h3 id="四、绘制三角形B"><a href="#四、绘制三角形B" class="headerlink" title="四、绘制三角形B"></a>四、绘制三角形B</h3><p>然后我们需要绘制一个颜色与矩形背景色相同的三角形B，添加伪元素after，在这个伪元素中绘制三角形B</p>
+<p>CSS代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.two:after &#123;</span><br><span class="line">    content: "";</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    display: block;</span><br><span class="line">    border-width: 20px;</span><br><span class="line">    border-color: transparent #fff transparent transparent;</span><br><span class="line">    border-style: dashed solid dashed dashed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/09/dialog2/img4.png" alt=""></p>
+<hr>
+<h3 id="五、调整三角形B的位置"><a href="#五、调整三角形B的位置" class="headerlink" title="五、调整三角形B的位置"></a>五、调整三角形B的位置</h3><p>我们通过CSS定位（position）来移动三角形箭头B位置，用B三角形遮住A三角形的底边，只留两侧的边，这样三角形看起来就好像是描边的了。</p>
+<p>CSS代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.two:after &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 30%;</span><br><span class="line">    left: -40px;  /* 向左移动 自己边框*2 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/09/dialog2/img5.png" alt=""></p>
+<hr>
+<h3 id="六、修改三角形颜色"><a href="#六、修改三角形颜色" class="headerlink" title="六、修改三角形颜色"></a>六、修改三角形颜色</h3><p>最后，我们只需要将三角形箭头A的颜色修改为矩形框的边框颜色，将三角形B的颜色改为矩形框的背景色就可以啦~</p>
+<p>下面附上完整代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>纯CSS 描边三角形 + 描边矩形 对话框<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /* 1.描边矩形 */</span></span><br><span class="line"><span class="undefined">        .two &#123;</span></span><br><span class="line"><span class="undefined">            width: 250px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            line-height: 100px;</span></span><br><span class="line"><span class="undefined">            margin: 0 auto;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            border-radius: 10px;</span></span><br><span class="line"><span class="undefined">            border: 10px solid #A7A7DB;</span></span><br><span class="line"><span class="undefined">            position: relative;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /* 2.添加伪元素before，在这里添加三角形A */</span></span><br><span class="line"><span class="undefined">        .two:before, .two:after &#123;</span></span><br><span class="line"><span class="undefined">            content: "";</span></span><br><span class="line"><span class="undefined">            width: 0;</span></span><br><span class="line"><span class="undefined">            height: 0;</span></span><br><span class="line"><span class="undefined">            display: block;</span></span><br><span class="line"><span class="undefined">            border-width: 20px;</span></span><br><span class="line"><span class="undefined">            border-color: transparent #A7A7DB transparent transparent;</span></span><br><span class="line"><span class="undefined">            border-style: dashed solid dashed dashed;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 30%;</span></span><br><span class="line"><span class="undefined">            left: -50px; /* 向左移动 矩形的左边框 + 自己边框*2 */</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /* 3.添加伪元素after，在这里添加三角形B */</span></span><br><span class="line"><span class="undefined">        .two:after &#123;</span></span><br><span class="line"><span class="undefined">            border-color: transparent #E5DEEB transparent transparent;</span></span><br><span class="line"><span class="undefined">            border-style: dashed solid dashed dashed;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 30%;</span></span><br><span class="line"><span class="undefined">            left: -40px; /* 向左移动 自己边框*2 */</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>三角形在左侧的对话框<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/09/dialog2/img6.png" alt=""></p>
+
       
     </div>
 
@@ -446,11 +488,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/09/dialog2/">纯CSS 描边等边三角形 + 描边矩形 气泡对话框</a></p>
+  <p><span>本文标题:</span><a href="/2018/09/09/dialog2/">纯CSS 描边三角形 + 描边矩形 气泡对话框</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
   <p><span>发布时间:</span>2018年09月09日 - 16:09</p>
-  <p><span>最后更新:</span>2018年09月09日 - 16:09</p>
-  <p><span>原始链接:</span><a href="/2018/09/09/dialog2/" title="纯CSS 描边等边三角形 + 描边矩形 气泡对话框">http://yoursite.com/2018/09/09/dialog2/</a>
+  <p><span>最后更新:</span>2018年09月09日 - 17:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/09/dialog2/" title="纯CSS 描边三角形 + 描边矩形 气泡对话框">http://yoursite.com/2018/09/09/dialog2/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/09/09/dialog2/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -502,8 +544,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/09/dialog1/" rel="next" title="纯CSS 带等边三角形的气泡对话框">
-                <i class="fa fa-chevron-left"></i> 纯CSS 带等边三角形的气泡对话框
+              <a href="/2018/09/09/dialog1/" rel="next" title="纯CSS 实心三角形 + 实心矩形 气泡对话框">
+                <i class="fa fa-chevron-left"></i> 纯CSS 实心三角形 + 实心矩形 气泡对话框
               </a>
             
           </div>
@@ -677,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、绘制矩形对话框"><span class="nav-number">1.</span> <span class="nav-text">一、绘制矩形对话框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、"><span class="nav-number">2.</span> <span class="nav-text">二、</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、绘制矩形对话框"><span class="nav-number">1.</span> <span class="nav-text">一、绘制矩形对话框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、绘制三角形箭头A"><span class="nav-number">2.</span> <span class="nav-text">二、绘制三角形箭头A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、调整三角形箭头的位置"><span class="nav-number">3.</span> <span class="nav-text">三、调整三角形箭头的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、绘制三角形B"><span class="nav-number">4.</span> <span class="nav-text">四、绘制三角形B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、调整三角形B的位置"><span class="nav-number">5.</span> <span class="nav-text">五、调整三角形B的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、修改三角形颜色"><span class="nav-number">6.</span> <span class="nav-text">六、修改三角形颜色</span></a></li></ol></div>
             
 
           </div>
@@ -711,7 +753,7 @@
   <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.2k字</span>
+  <span class="post-count">博客全站共4.1k字</span>
 </div>
 </div>
 
