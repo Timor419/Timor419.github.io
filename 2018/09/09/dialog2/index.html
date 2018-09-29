@@ -29,9 +29,13 @@
   
   
     
+      
     
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
 
 
 
@@ -115,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="html,div,CSS,三角形,对话框">
+  <meta name="keywords" content="html,div,CSS,对话框,三角形">
 <meta property="og:type" content="article">
 <meta property="og:title" content="纯CSS 描边三角形 + 描边矩形 气泡对话框">
 <meta property="og:url" content="http://yoursite.com/2018/09/09/dialog2/index.html">
@@ -128,7 +132,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img4.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img5.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/09/dialog2/img6.png">
-<meta property="og:updated_time" content="2018-09-10T02:02:45.000Z">
+<meta property="og:updated_time" content="2018-09-29T02:29:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="纯CSS 描边三角形 + 描边矩形 气泡对话框">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/09/dialog2/img6.png">
@@ -223,7 +227,7 @@
     </div>
     
       
-        <p class="site-subtitle">签名</p>
+        <p class="site-subtitle">Life is too short to compromise</p>
       
     
   </div>
@@ -318,6 +322,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -328,7 +334,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="White">
-      <meta itemprop="description" content="描述">
+      <meta itemprop="description" content="人生苦短，何必将就">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -383,7 +389,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-10 10:02:45" itemprop="dateModified" datetime="2018-09-10T10:02:45+08:00">2018-09-10</time>
+                <time title="修改时间：2018-09-29 10:29:01" itemprop="dateModified" datetime="2018-09-29T10:29:01+08:00">2018-09-29</time>
               
             
           </span>
@@ -437,6 +443,7 @@
 <p>③添加伪元素after；</p>
 <p> 在实心的三角形A上添加一个小三角形B （颜色为矩形背景色），将A覆盖，只留两个边</p>
 </blockquote>
+<hr>
 <h3 id="一、绘制矩形对话框"><a href="#一、绘制矩形对话框" class="headerlink" title="一、绘制矩形对话框"></a>一、绘制矩形对话框</h3><p>在绘制如上图这样一个带三角形的气泡对话框之前，我们先绘制一个矩形，并将这个矩形加上边框（border），使它成为一个描边的矩形。</p>
 <p>代码如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>纯CSS 描边三角形 + 描边矩形 气泡对话框<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .two &#123;</span></span><br><span class="line"><span class="undefined">            width: 250px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            line-height: 100px;</span></span><br><span class="line"><span class="undefined">            margin: 0 auto;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            border-radius: 10px;</span></span><br><span class="line"><span class="undefined">            border: 10px solid #A7A7DB;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>三角形在左侧的对话框<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -503,7 +510,7 @@
   <p><span>本文标题:</span><a href="/2018/09/09/dialog2/">纯CSS 描边三角形 + 描边矩形 气泡对话框</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
   <p><span>发布时间:</span>2018年09月09日 - 16:09</p>
-  <p><span>最后更新:</span>2018年09月10日 - 10:09</p>
+  <p><span>最后更新:</span>2018年09月29日 - 10:09</p>
   <p><span>原始链接:</span><a href="/2018/09/09/dialog2/" title="纯CSS 描边三角形 + 描边矩形 气泡对话框">http://yoursite.com/2018/09/09/dialog2/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/09/09/dialog2/"  aria-label="复制成功！"></i></span>
   </p>
@@ -541,9 +548,9 @@
           
             <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
           
-            <a href="/tags/三角形/" rel="tag"><i class="fa fa-tag"></i> 三角形</a>
-          
             <a href="/tags/对话框/" rel="tag"><i class="fa fa-tag"></i> 对话框</a>
+          
+            <a href="/tags/三角形/" rel="tag"><i class="fa fa-tag"></i> 三角形</a>
           
         </div>
       
@@ -632,7 +639,7 @@
                 alt="White" />
             
               <p class="site-author-name" itemprop="name">White</p>
-              <p class="site-description motion-element" itemprop="description">描述</p>
+              <p class="site-description motion-element" itemprop="description">人生苦短，何必将就</p>
           </div>
 
           
@@ -847,6 +854,8 @@
 
 
 
+  
+
 
 
   
@@ -867,6 +876,11 @@
   
   
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
 

@@ -29,9 +29,13 @@
   
   
     
+      
     
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
 
 
 
@@ -126,7 +130,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/09/09/triangle-border/two.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/09/triangle-border/three-all.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/09/triangle-border/three.png">
-<meta property="og:updated_time" content="2018-09-10T02:01:04.000Z">
+<meta property="og:updated_time" content="2018-09-29T02:32:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS实现梯形、三角形">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/09/triangle-border/img-all.png">
@@ -221,7 +225,7 @@
     </div>
     
       
-        <p class="site-subtitle">签名</p>
+        <p class="site-subtitle">Life is too short to compromise</p>
       
     
   </div>
@@ -316,6 +320,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -326,7 +332,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="White">
-      <meta itemprop="description" content="描述">
+      <meta itemprop="description" content="人生苦短，何必将就">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -381,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-10 10:01:04" itemprop="dateModified" datetime="2018-09-10T10:01:04+08:00">2018-09-10</time>
+                <time title="修改时间：2018-09-29 10:32:47" itemprop="dateModified" datetime="2018-09-29T10:32:47+08:00">2018-09-29</time>
               
             
           </span>
@@ -427,6 +433,7 @@
       
         <p><img src="/2018/09/09/triangle-border/img-all.png" alt=""></p>
 <a id="more"></a>
+<hr>
 <h3 id="一、矩形"><a href="#一、矩形" class="headerlink" title="一、矩形"></a>一、矩形</h3><p>我们知道，我们可以通过border，给矩形设置边框。</p>
 <p>我们给矩形的边框加粗，并把4个边框设置为不同颜色之后，发现4个边框为4个梯形。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      .one &#123;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            margin: 10px auto;</span></span><br><span class="line"><span class="undefined">            border: 50px solid;</span></span><br><span class="line"><span class="undefined">            /*设置不同边框为不同颜色*/</span></span><br><span class="line"><span class="undefined">            /*边框颜色：上 右 下 左 （从上边框开始 顺时针方向）*/</span></span><br><span class="line"><span class="undefined">            border-color: #735645 #A68568 #402820 #BFB19F;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -477,7 +484,7 @@
   <p><span>本文标题:</span><a href="/2018/09/09/triangle-border/">CSS实现梯形、三角形</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
   <p><span>发布时间:</span>2018年09月09日 - 13:09</p>
-  <p><span>最后更新:</span>2018年09月10日 - 10:09</p>
+  <p><span>最后更新:</span>2018年09月29日 - 10:09</p>
   <p><span>原始链接:</span><a href="/2018/09/09/triangle-border/" title="CSS实现梯形、三角形">http://yoursite.com/2018/09/09/triangle-border/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/09/09/triangle-border/"  aria-label="复制成功！"></i></span>
   </p>
@@ -606,7 +613,7 @@
                 alt="White" />
             
               <p class="site-author-name" itemprop="name">White</p>
-              <p class="site-description motion-element" itemprop="description">描述</p>
+              <p class="site-description motion-element" itemprop="description">人生苦短，何必将就</p>
           </div>
 
           
@@ -821,6 +828,8 @@
 
 
 
+  
+
 
 
   
@@ -841,6 +850,11 @@
   
   
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
 
