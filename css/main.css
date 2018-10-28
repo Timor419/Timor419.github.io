@@ -1923,7 +1923,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f62bff;
+  background: #132ff2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3175,5 +3175,15 @@ body {
   text-shadow: 0.01em 0.01em 0.01em #999 !important;
 }
 .site-title {
-  font-family: 'Playball', 'Lato', "PingFang SC", "Microsoft YaHei", 'sans-serif';
+  font-size: 30px;
+  font-weight: 900;
+  font-family: 'Xingkai SC', 'Weibei SC', 'Playball', 'Lato', "PingFang SC", "Microsoft YaHei", 'sans-serif';
+}
+.site-subtitle {
+  font-size: 18px;
+  font-family: 'Xingkai SC', 'Weibei SC', 'Playball', 'Lato', "PingFang SC", "Microsoft YaHei", 'sans-serif';
+}
+.site-author-name,
+.site-description {
+  font-family: 'Weibei SC', 'Playball', 'Lato', "PingFang SC", "Microsoft YaHei", 'sans-serif';
 }
