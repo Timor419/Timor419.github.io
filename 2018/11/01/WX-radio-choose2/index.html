@@ -119,20 +119,20 @@
 
 
 
-  <meta name="description" content="先来说明一下我们需要实现的最终效果： 点击“退出”按钮，返回上一页（或跳转到指定页面）； 未勾选“我已阅读并同意”之前，“继续”按钮点击无效； 勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。 思路分析首先，我们需要设置一个modal弹出框，我们先来了解一下modal弹出框的一些常用属性。  其次，我们需要实现点击选中，再次点击取消选中的效果，可以通过给radio绑定">
+  <meta name="description" content="先来说明一下我们需要实现的最终效果： 点击“退出”按钮，返回上一页（或跳转到指定页面）； 未勾选“我已阅读并同意”之前，“继续”按钮点击无效； 勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。">
 <meta name="keywords" content="微信小程序,点击事件,radio,弹出框">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序-modal弹出框之免责声明">
 <meta property="og:url" content="http://yoursite.com/2018/11/01/WX-radio-choose2/index.html">
 <meta property="og:site_name" content="White&#39;s Blog">
-<meta property="og:description" content="先来说明一下我们需要实现的最终效果： 点击“退出”按钮，返回上一页（或跳转到指定页面）； 未勾选“我已阅读并同意”之前，“继续”按钮点击无效； 勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。 思路分析首先，我们需要设置一个modal弹出框，我们先来了解一下modal弹出框的一些常用属性。  其次，我们需要实现点击选中，再次点击取消选中的效果，可以通过给radio绑定">
+<meta property="og:description" content="先来说明一下我们需要实现的最终效果： 点击“退出”按钮，返回上一页（或跳转到指定页面）； 未勾选“我已阅读并同意”之前，“继续”按钮点击无效； 勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/11/01/WX-radio-choose2/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/01/WX-radio-choose2/GIF.gif">
-<meta property="og:updated_time" content="2018-11-03T06:19:45.000Z">
+<meta property="og:updated_time" content="2018-11-03T06:33:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序-modal弹出框之免责声明">
-<meta name="twitter:description" content="先来说明一下我们需要实现的最终效果： 点击“退出”按钮，返回上一页（或跳转到指定页面）； 未勾选“我已阅读并同意”之前，“继续”按钮点击无效； 勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。 思路分析首先，我们需要设置一个modal弹出框，我们先来了解一下modal弹出框的一些常用属性。  其次，我们需要实现点击选中，再次点击取消选中的效果，可以通过给radio绑定">
+<meta name="twitter:description" content="先来说明一下我们需要实现的最终效果： 点击“退出”按钮，返回上一页（或跳转到指定页面）； 未勾选“我已阅读并同意”之前，“继续”按钮点击无效； 勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。">
 <meta name="twitter:image" content="http://yoursite.com/2018/11/01/WX-radio-choose2/1.png">
 
 
@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-03 14:19:45" itemprop="dateModified" datetime="2018-11-03T14:19:45+08:00">2018-11-03</time>
+                <time title="修改时间：2018-11-03 14:33:44" itemprop="dateModified" datetime="2018-11-03T14:33:44+08:00">2018-11-03</time>
               
             
           </span>
@@ -461,6 +461,7 @@
 <p>点击“退出”按钮，返回上一页（或跳转到指定页面）；</p>
 <p>未勾选“我已阅读并同意”之前，“继续”按钮点击无效；</p>
 <p>勾选“我已阅读并同意”之后可以点击“继续”按钮，点击“继续”按钮之后弹窗消失。</p>
+<a id="more"></a>
 <h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>首先，我们需要设置一个modal弹出框，我们先来了解一下modal弹出框的一些常用属性。</p>
 <p><img src="/2018/11/01/WX-radio-choose2/1.png" alt=""></p>
 <p>其次，我们需要实现点击选中，再次点击取消选中的效果，可以通过给radio绑定一个点击事件（bindtap）来实现这一功能。详情可以<a href="">点此查看</a>。</p>
