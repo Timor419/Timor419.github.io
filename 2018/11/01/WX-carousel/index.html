@@ -119,24 +119,28 @@
 
 
 
-  <meta name="keywords" content="html,div,CSS,页面布局">
+  <meta name="description" content="先来说明一下我们需要实现的最终效果：轮播图，图片自动切换，也可以通过人为的滑动来进行来回切换，并且当用户点击其中一张图片时，跳转到与其相对应的页面。 思路分析微信小程序提供swiper组件，swiper是一个滑块视图容器。我们先来了解一下swiper组件的一些属性。  我们通过设置其中的一些属性来实现图片的自动轮播：  autoplay: true, //自动切换 circular: true,">
+<meta name="keywords" content="微信小程序,轮播图,点击事件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面整体布局（一行2列左窄右宽、高度不一）">
-<meta property="og:url" content="http://yoursite.com/2018/09/04/Page-Layout2/index.html">
+<meta property="og:title" content="微信小程序-轮播图（自动轮播、点击图片跳转页面）">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/WX-carousel/index.html">
 <meta property="og:site_name" content="White&#39;s Blog">
+<meta property="og:description" content="先来说明一下我们需要实现的最终效果：轮播图，图片自动切换，也可以通过人为的滑动来进行来回切换，并且当用户点击其中一张图片时，跳转到与其相对应的页面。 思路分析微信小程序提供swiper组件，swiper是一个滑块视图容器。我们先来了解一下swiper组件的一些属性。  我们通过设置其中的一些属性来实现图片的自动轮播：  autoplay: true, //自动切换 circular: true,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/09/04/Page-Layout2/img.png">
-<meta property="og:updated_time" content="2018-11-01T02:09:21.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/WX-carousel/swiper.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/WX-carousel/lbt.gif">
+<meta property="og:updated_time" content="2018-11-03T06:05:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面整体布局（一行2列左窄右宽、高度不一）">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/04/Page-Layout2/img.png">
+<meta name="twitter:title" content="微信小程序-轮播图（自动轮播、点击图片跳转页面）">
+<meta name="twitter:description" content="先来说明一下我们需要实现的最终效果：轮播图，图片自动切换，也可以通过人为的滑动来进行来回切换，并且当用户点击其中一张图片时，跳转到与其相对应的页面。 思路分析微信小程序提供swiper组件，swiper是一个滑块视图容器。我们先来了解一下swiper组件的一些属性。  我们通过设置其中的一些属性来实现图片的自动轮播：  autoplay: true, //自动切换 circular: true,">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/01/WX-carousel/swiper.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/04/Page-Layout2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/WX-carousel/"/>
 
 
 
@@ -146,7 +150,7 @@
   };
 </script>
 
-  <title>页面整体布局（一行2列左窄右宽、高度不一） | White's Blog</title>
+  <title>微信小程序-轮播图（自动轮播、点击图片跳转页面） | White's Blog</title>
   
 
 
@@ -324,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/Page-Layout2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/WX-carousel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="White">
@@ -341,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">页面整体布局（一行2列左窄右宽、高度不一）
+          <h1 class="post-title" itemprop="name headline">微信小程序-轮播图（自动轮播、点击图片跳转页面）
               
             
           </h1>
@@ -366,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2018-09-04 23:24:57" itemprop="dateCreated datePublished" datetime="2018-09-04T23:24:57+08:00">2018-09-04</time>
+              <time title="创建时间：2018-11-01 07:29:25" itemprop="dateCreated datePublished" datetime="2018-11-01T07:29:25+08:00">2018-11-01</time>
             
 
             
@@ -383,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-01 10:09:21" itemprop="dateModified" datetime="2018-11-01T10:09:21+08:00">2018-11-01</time>
+                <time title="修改时间：2018-11-03 14:05:13" itemprop="dateModified" datetime="2018-11-03T14:05:13+08:00">2018-11-03</time>
               
             
           </span>
@@ -400,7 +404,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术-HTML/" itemprop="url" rel="index"><span itemprop="name">技术-HTML</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术-微信小程序/" itemprop="url" rel="index"><span itemprop="name">技术-微信小程序</span></a></span>
 
                 
                 
@@ -414,7 +418,7 @@
 
           
           
-             <span id="/2018/09/04/Page-Layout2/" class="leancloud_visitors" data-flag-title="页面整体布局（一行2列左窄右宽、高度不一）">
+             <span id="/2018/11/01/WX-carousel/" class="leancloud_visitors" data-flag-title="微信小程序-轮播图（自动轮播、点击图片跳转页面）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,9 +457,26 @@
       
 
       
-        <p><img src="/2018/09/04/Page-Layout2/img.png" alt=""></p>
-<a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /*清除内外边距*/</span></span><br><span class="line"><span class="undefined">        * &#123;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">            color: #fff;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /*1.一列 宽度固定 且垂直居中 */</span></span><br><span class="line"><span class="undefined">        .head, .banner, .main, .footer &#123;</span></span><br><span class="line"><span class="undefined">            width: 960px;</span></span><br><span class="line"><span class="undefined">            margin: 10px auto; /*让盒子左右垂直居中对齐*/</span></span><br><span class="line"><span class="undefined">            text-align: center; /*文字水平居中*/</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .head, .footer &#123;</span></span><br><span class="line"><span class="undefined">            height: 50px;</span></span><br><span class="line"><span class="undefined">            line-height: 50px;</span></span><br><span class="line"><span class="undefined">            background-color: #E3D2BE;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .banner &#123;</span></span><br><span class="line"><span class="undefined">            height: 80px;</span></span><br><span class="line"><span class="undefined">            line-height: 80px;</span></span><br><span class="line"><span class="undefined">            background-color: #E7DDCB;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .main &#123;</span></span><br><span class="line"><span class="undefined">            background-color: #DFD9D2;</span></span><br><span class="line"><span class="undefined">            /* 2. 两列 左窄右宽 方法1：flex布局</span></span><br><span class="line"><span class="undefined">            display: flex;</span></span><br><span class="line"><span class="undefined">            flex-flow: row wrap;</span></span><br><span class="line"><span class="undefined">            justify-content: space-between;</span></span><br><span class="line"><span class="undefined">            */</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .main .left1, .left2 &#123;</span></span><br><span class="line"><span class="undefined">            width: 25%;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            line-height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: #9EA9AE;</span></span><br><span class="line"><span class="undefined">            /*两列 左窄右宽 方法2：float*/</span></span><br><span class="line"><span class="undefined">            float: left;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .main .right1, .right2 &#123;</span></span><br><span class="line"><span class="undefined">            width: 65%;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="undefined">            line-height: 100px;</span></span><br><span class="line"><span class="undefined">            background-color: #C5BFB9;</span></span><br><span class="line"><span class="undefined">            /*2.两列 左窄右宽 方法2：float*/</span></span><br><span class="line"><span class="undefined">            float: right;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .main .right2 &#123;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /*清除浮动*/</span></span><br><span class="line"><span class="undefined">        .clearfix:before, .clearfix:after &#123;</span></span><br><span class="line"><span class="undefined">            content: '';</span></span><br><span class="line"><span class="undefined">            display: table; /*触发BFC，防止外边距合并*/</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .clearfix:after &#123;</span></span><br><span class="line"><span class="undefined">            clear: both;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .clearfix &#123;</span></span><br><span class="line"><span class="undefined">            *zoom: 1;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.一列 宽度固定 且垂直居中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"head"</span>&gt;</span>head<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"banner"</span>&gt;</span>banner<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main clearfix"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 2.两列 左窄右宽 高度相同 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left1"</span>&gt;</span>left 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right1"</span>&gt;</span>right 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main clearfix"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 2.两列 左窄右宽 高度不同--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left2"</span>&gt;</span>left 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right2"</span>&gt;</span>right 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>先来说明一下我们需要实现的最终效果：轮播图，图片自动切换，也可以通过人为的滑动来进行来回切换，并且当用户点击其中一张图片时，跳转到与其相对应的页面。</p>
+<h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>微信小程序提供swiper组件，swiper是一个滑块视图容器。我们先来了解一下swiper组件的一些属性。</p>
+<p><img src="/2018/11/01/WX-carousel/swiper.png" alt=""></p>
+<p>我们通过设置其中的一些属性来实现图片的自动轮播：</p>
+<ul>
+<li>autoplay: true, //自动切换</li>
+<li>circular: true, //采用衔接滑动</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>swiper-item 仅可放置在<code>&lt;swiper/&gt;</code>组件中，宽高自动设置为100%。</p>
+</blockquote>
+<p>下面我们直接看代码：</p>
+<h3 id="1-wxml"><a href="#1-wxml" class="headerlink" title="1 .wxml"></a>1 .wxml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;view&gt;</span><br><span class="line">  &lt;swiper indicator-dots=&quot;&#123;&#123;indicatorDots&#125;&#125;&quot; autoplay=&quot;&#123;&#123;autoplay&#125;&#125;&quot; interval=&quot;&#123;&#123;interval&#125;&#125;&quot; duration=&quot;&#123;&#123;duration&#125;&#125;&quot; circular=&quot;&#123;&#123;duration&#125;&#125;&quot; current=&quot;&#123;&#123;swiperCurrent&#125;&#125;&quot; bindchange=&quot;swiperChange&quot; class=&quot;swiper&quot;&gt;</span><br><span class="line">    &lt;block wx:for=&quot;&#123;&#123;imgUrls&#125;&#125;&quot; wx:key=&quot;unique&quot;&gt;</span><br><span class="line">      &lt;swiper-item&gt;</span><br><span class="line">        &lt;image src=&quot;&#123;&#123;item&#125;&#125;&quot; class=&quot;img&quot; bindtap=&quot;swipclick&quot;/&gt;    </span><br><span class="line">        &lt;video src=&quot;&#123;&#123;item&#125;&#125;&quot;&gt;&lt;/video&gt;</span><br><span class="line">     &lt;/swiper-item&gt;</span><br><span class="line">    &lt;/block&gt;</span><br><span class="line">  &lt;/swiper&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-js"><a href="#2-js" class="headerlink" title="2 .js"></a>2 .js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    swiperCurrent: <span class="number">0</span>,<span class="comment">//当前所在页面的 index</span></span><br><span class="line">    indicatorDots: <span class="literal">true</span>, <span class="comment">//是否显示面板指示点</span></span><br><span class="line">    autoplay: <span class="literal">true</span>, <span class="comment">//是否自动切换</span></span><br><span class="line">    interval: <span class="number">3000</span>, <span class="comment">//自动切换时间间隔,3s</span></span><br><span class="line">    duration: <span class="number">1000</span>, <span class="comment">//滑动动画时长1s</span></span><br><span class="line">    circular: <span class="literal">true</span>, <span class="comment">//是否采用衔接滑动</span></span><br><span class="line">    imgUrls: [<span class="comment">//图片路径(可以是本地路径，也可以是图片链接)</span></span><br><span class="line">      <span class="string">'../img/lbt/1.jpeg'</span>,</span><br><span class="line">      <span class="string">'../img/lbt/2.jpeg'</span>,</span><br><span class="line">      <span class="string">'../img/lbt/3.jpeg'</span>,</span><br><span class="line">      <span class="string">'../img/lbt/4.jpeg'</span>,</span><br><span class="line">      <span class="string">'https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1539949312074&amp;di=39722c3c27bda0680e3433b64dd9c7e2&amp;imgtype=0&amp;src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb7fd5266d016092454b64286de0735fae7cd3498.jpg'</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    links: [<span class="comment">//点击图片之后跳转的路径</span></span><br><span class="line">      <span class="string">'../personal/personal'</span>,</span><br><span class="line">      <span class="string">'../personal/personal'</span>,</span><br><span class="line">      <span class="string">'../personal/personal'</span>,</span><br><span class="line">      <span class="string">'../personal/personal'</span>,</span><br><span class="line">      <span class="string">'../personal/personal'</span>,</span><br><span class="line">    ] </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//轮播图的切换事件</span></span><br><span class="line">  swiperChange: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      swiperCurrent: e.detail.current</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//点击指示点切换事件</span></span><br><span class="line">  chuangEvent: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      swiperCurrent: e.currentTarget.id</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">//点击图片触发事件</span></span><br><span class="line">  swipclick: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.data.swiperCurrent);</span><br><span class="line">    wx.switchTab(&#123;</span><br><span class="line">      url: <span class="keyword">this</span>.data.links[<span class="keyword">this</span>.data.swiperCurrent]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-wxss"><a href="#3-wxss" class="headerlink" title="3 .wxss"></a>3 .wxss</h3><p>根据自己需求进行样式设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/* 设置放轮播图的盒子属性 */</span><br><span class="line">swiper &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 400rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 设置轮播图图片属性 */</span><br><span class="line">swiper-item image &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p><img src="/2018/11/01/WX-carousel/lbt.gif" alt=""></p>
+
       
     </div>
 
@@ -484,12 +505,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/04/Page-Layout2/">页面整体布局（一行2列左窄右宽、高度不一）</a></p>
+  <p><span>本文标题:</span><a href="/2018/11/01/WX-carousel/">微信小程序-轮播图（自动轮播、点击图片跳转页面）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
-  <p><span>发布时间:</span>2018年09月04日 - 23:09</p>
-  <p><span>最后更新:</span>2018年11月01日 - 10:11</p>
-  <p><span>原始链接:</span><a href="/2018/09/04/Page-Layout2/" title="页面整体布局（一行2列左窄右宽、高度不一）">http://yoursite.com/2018/09/04/Page-Layout2/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/09/04/Page-Layout2/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年11月01日 - 07:11</p>
+  <p><span>最后更新:</span>2018年11月03日 - 14:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/01/WX-carousel/" title="微信小程序-轮播图（自动轮播、点击图片跳转页面）">http://yoursite.com/2018/11/01/WX-carousel/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/11/01/WX-carousel/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -519,13 +540,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> html</a>
+            <a href="/tags/微信小程序/" rel="tag"><i class="fa fa-tag"></i> 微信小程序</a>
           
-            <a href="/tags/div/" rel="tag"><i class="fa fa-tag"></i> div</a>
+            <a href="/tags/轮播图/" rel="tag"><i class="fa fa-tag"></i> 轮播图</a>
           
-            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
-          
-            <a href="/tags/页面布局/" rel="tag"><i class="fa fa-tag"></i> 页面布局</a>
+            <a href="/tags/点击事件/" rel="tag"><i class="fa fa-tag"></i> 点击事件</a>
           
         </div>
       
@@ -538,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/01/Page-Layout1/" rel="next" title="页面整体布局（一列固定宽度且居中、上下通栏）">
-                <i class="fa fa-chevron-left"></i> 页面整体布局（一列固定宽度且居中、上下通栏）
+              <a href="/2018/10/28/WX-calendar/" rel="next" title="微信小程序-日历（选择日期、月份）">
+                <i class="fa fa-chevron-left"></i> 微信小程序-日历（选择日期、月份）
               </a>
             
           </div>
@@ -548,8 +567,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/04/Page-Layout3/" rel="prev" title="页面整体布局（一行3列宽度不一）">
-                页面整体布局（一行3列宽度不一） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/01/WX-radio-choose1/" rel="prev" title="微信小程序-radio单选框点击选中，取消选择">
+                微信小程序-radio单选框点击选中，取消选择 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -719,6 +747,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-wxml"><span class="nav-number">2.</span> <span class="nav-text">1 .wxml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-js"><span class="nav-number">3.</span> <span class="nav-text">2 .js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-wxss"><span class="nav-number">4.</span> <span class="nav-text">3 .wxss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终效果"><span class="nav-number">5.</span> <span class="nav-text">最终效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
