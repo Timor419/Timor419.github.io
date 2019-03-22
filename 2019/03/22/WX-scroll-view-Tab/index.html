@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="先来说明一下我们需要实现的最终效果： tab标题有多个，一屏内无法全部显示，所以使用 scroll-view组件，使其可横向滚动。 点击切换tab标题时，内容区随之切换；内容区左右滑动切换时，tab标题也随之切换。所以使用swiper组件实现左右切换。 每个tab标题样式一致；当内容区几个页面样式一样时，可以用wx:for循环遍历重复出来。 当选中的tab标题不在当前屏显示时，要使其能显示到当前屏">
+<meta name="keywords" content="微信小程序,Tab导航栏,scroll-view">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WX-scroll-view-Tab">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/WX-scroll-view-Tab/index.html">
+<meta property="og:site_name" content="White&#39;s Blog">
+<meta property="og:description" content="先来说明一下我们需要实现的最终效果： tab标题有多个，一屏内无法全部显示，所以使用 scroll-view组件，使其可横向滚动。 点击切换tab标题时，内容区随之切换；内容区左右滑动切换时，tab标题也随之切换。所以使用swiper组件实现左右切换。 每个tab标题样式一致；当内容区几个页面样式一样时，可以用wx:for循环遍历重复出来。 当选中的tab标题不在当前屏显示时，要使其能显示到当前屏">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/WX-scroll-view-Tab/tab.gif">
+<meta property="og:updated_time" content="2019-03-22T03:09:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WX-scroll-view-Tab">
+<meta name="twitter:description" content="先来说明一下我们需要实现的最终效果： tab标题有多个，一屏内无法全部显示，所以使用 scroll-view组件，使其可横向滚动。 点击切换tab标题时，内容区随之切换；内容区左右滑动切换时，tab标题也随之切换。所以使用swiper组件实现左右切换。 每个tab标题样式一致；当内容区几个页面样式一样时，可以用wx:for循环遍历重复出来。 当选中的tab标题不在当前屏显示时，要使其能显示到当前屏">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/22/WX-scroll-view-Tab/tab.gif">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/22/WX-scroll-view-Tab/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>WX-scroll-view-Tab | White's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fb6494b341acb61c4f515a65954d2513";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/timor419"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">White's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Life is too short to compromise</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/WX-scroll-view-Tab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="White">
+      <meta itemprop="description" content="人生苦短，何必将就">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="White's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WX-scroll-view-Tab
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-22 10:10:52 / 修改时间：11:09:20" itemprop="dateCreated datePublished" datetime="2019-03-22T10:10:52+08:00">2019-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术-微信小程序/" itemprop="url" rel="index"><span itemprop="name">技术-微信小程序</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/22/WX-scroll-view-Tab/" class="leancloud_visitors" data-flag-title="WX-scroll-view-Tab">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="先来说明一下我们需要实现的最终效果："><a href="#先来说明一下我们需要实现的最终效果：" class="headerlink" title="先来说明一下我们需要实现的最终效果："></a>先来说明一下我们需要实现的最终效果：</h5><ol>
+<li>tab标题有多个，一屏内无法全部显示，所以使用 scroll-view组件，使其可横向滚动。</li>
+<li>点击切换tab标题时，内容区随之切换；内容区左右滑动切换时，tab标题也随之切换。所以使用swiper组件实现左右切换。</li>
+<li>每个tab标题样式一致；当内容区几个页面样式一样时，可以用wx:for循环遍历重复出来。</li>
+<li>当选中的tab标题不在当前屏显示时，要使其能显示到当前屏中。</li>
+</ol>
+<a id="more"></a>
+<p>下面我们直接看代码：</p>
+<h3 id="1-WXML"><a href="#1-WXML" class="headerlink" title="1. WXML"></a>1. WXML</h3><blockquote>
+<p>1、设置data-current属性用于：点击当前项时，通过点击事件swichNav中处理e.dataset.current取到点击的目标值。<br>2、swiper组件的current组件用于控制当前显示哪一页 </p>
+<p>3、swiper组件绑定change事件switchTab，通过e.detail.current拿到当前页</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;view&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- tab导航栏 --&gt;</span><br><span class="line">  &lt;scroll-view scroll-x=&quot;true&quot; class=&quot;tab-h&quot; scroll-left=&quot;&#123;&#123;scrollLeft&#125;&#125;&quot;&gt;</span><br><span class="line">    &lt;view class=&quot;tab-item &#123;&#123;currentTab == index ? &apos;tab-active&apos; : &apos;&apos;&#125;&#125;&quot; data-current=&quot;&#123;&#123;index&#125;&#125;&quot; bindtap=&quot;swichNav&quot; wx:for=&quot;&#123;&#123;tabName&#125;&#125;&quot;&gt;&#123;&#123;item.name&#125;&#125;&lt;/view&gt;</span><br><span class="line">  &lt;/scroll-view&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 主体内容 --&gt;</span><br><span class="line">  &lt;swiper current=&quot;&#123;&#123;currentTab&#125;&#125;&quot; duration=&quot;300&quot; bindchange=&quot;switchTab&quot; style=&quot;height:&#123;&#123;winHeight&#125;&#125;rpx&quot; class=&quot;tab-content&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;swiper-item wx:for=&quot;&#123;&#123;tabName.length&#125;&#125;&quot;&gt;&lt;!-- 当几个页面样式一样时，可以用wx:for循环遍历重复出来 --&gt;</span><br><span class="line">      &lt;scroll-view scroll-x=&quot;false&quot; scroll-y=&quot;true&quot; class=&quot;scoll-h&quot; enable-back-to-top=&quot;true&quot;&gt;</span><br><span class="line">       &lt;view&gt;&#123;&#123;choosedTabInformation&#125;&#125;&lt;/view&gt;</span><br><span class="line">      &lt;/scroll-view&gt;</span><br><span class="line">    &lt;/swiper-item&gt;</span><br><span class="line">  &lt;/swiper&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-JS"><a href="#2-JS" class="headerlink" title="2. JS"></a>2. JS</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tabNum = <span class="number">0</span>; <span class="comment">// 当前选中第几个tab标题</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    winHeight: <span class="string">""</span>, <span class="comment">// 窗口高度</span></span><br><span class="line">    currentTab: <span class="number">0</span>, <span class="comment">// 预设当前项的值</span></span><br><span class="line">    scrollLeft: <span class="number">0</span>, <span class="comment">// tab标题的滚动条位置</span></span><br><span class="line">    tabName:[], <span class="comment">// tab标题的名字</span></span><br><span class="line">    choosedTabInformation: <span class="string">""</span> <span class="comment">// 当前选中tab标题的信息</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 左右滚动tab标题，切换标签</span></span><br><span class="line">  switchTab: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> current = e.detail.current;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      currentTab: current</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"当前选中tab标题"</span>, current);</span><br><span class="line">    <span class="keyword">this</span>.getInformation(current); <span class="comment">//  获取当前选中tab标题的信息</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 点击tab标题，切换当前页</span></span><br><span class="line">  swichNav: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"点击tab标题"</span>, e.target.dataset.current);</span><br><span class="line">    <span class="keyword">let</span> cur = e.target.dataset.current;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.data.currentTab == cur) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        currentTab: cur</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"当前选中tab标题"</span>, cur);</span><br><span class="line">    <span class="keyword">this</span>.getInformation(cur); <span class="comment">//  获取当前选中tab标题的信息</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/****************    高度自适应（rpx）    ****************/</span></span><br><span class="line">  getWindowHeight: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    wx.getSystemInfo(&#123;</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> clientHeight = res.windowHeight,</span><br><span class="line">          clientWidth = res.windowWidth,</span><br><span class="line">          rpxR = <span class="number">750</span> / clientWidth; <span class="comment">//比例</span></span><br><span class="line">        <span class="built_in">console</span>.log(clientHeight);</span><br><span class="line">        <span class="built_in">console</span>.log(clientWidth);</span><br><span class="line">        <span class="keyword">let</span> calc = clientHeight * rpxR; <span class="comment">// 如有最底部导航栏空间，则 calc - 底部导航栏高度</span></span><br><span class="line">        <span class="built_in">console</span>.log(calc);</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">          winHeight: calc</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.getWindowHeight(); <span class="comment">// 高度自适应（rpx）</span></span><br><span class="line">    <span class="keyword">this</span>.getTabName(); <span class="comment">// 获取头部导航栏tab标题的名字</span></span><br><span class="line">    <span class="keyword">this</span>.getInformation(tabNum); <span class="comment">//  获取当前选中tab标题的信息</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/****************    获取头部导航栏tab标题的名字    ****************/</span></span><br><span class="line">  getTabName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"获取头部导航栏tab标题的名字"</span>);</span><br><span class="line">    <span class="comment">// 假数据</span></span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        tabName: [&#123; <span class="attr">name</span>: <span class="string">"星巴克"</span> &#125;, &#123;<span class="attr">name</span>:<span class="string">"肯德基"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"必胜客"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"优酷会员"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"哈根达斯"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"太平洋咖啡"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"呷哺呷哺"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"喜马拉雅"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"百果园"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"汉堡王"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"COSTA咖啡"</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"coco都可"</span>&#125;],</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/****************    获取对应tab标题的信息    ****************/</span></span><br><span class="line">  getInformation: <span class="function"><span class="keyword">function</span>(<span class="params">tabNum</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 假数据</span></span><br><span class="line">    <span class="keyword">if</span> (tabNum == <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第1个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"1"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第2个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"2"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第3个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"3"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第4个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"4"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">4</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第5个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"5"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第6个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"6"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">6</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第7个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"7"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">7</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第8个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"8"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">8</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第9个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"9"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">9</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第10个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"10"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">10</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第11个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"11"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tabNum == <span class="number">11</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"当前选中第12个tab标题"</span>);</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        choosedTabInformation: <span class="string">"12"</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-WXSS"><a href="#3-WXSS" class="headerlink" title="3. WXSS"></a>3. WXSS</h3><p>根据自己需求进行样式设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">/* =======================================</span><br><span class="line">		         tab标题 选择卡 </span><br><span class="line">  ======================================= */</span><br><span class="line"></span><br><span class="line">/* 头部导航栏 */</span><br><span class="line"></span><br><span class="line">.tab-h &#123;</span><br><span class="line">  height: 80rpx;</span><br><span class="line">  width: 100%;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  overflow: hidden; /* 超出部分隐藏 */</span><br><span class="line">  line-height: 80rpx;</span><br><span class="line">  background: #fff;</span><br><span class="line">  border-bottom: 1rpx solid #cecece;</span><br><span class="line">  font-size: 28rpx;</span><br><span class="line">  white-space: nowrap; /* 设置滚动视图容器不换行 *//* 固定在头部 */</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  z-index: 90;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 每个tab标题样式 */</span><br><span class="line">.tab-item &#123;</span><br><span class="line">  padding: 0 36rpx;</span><br><span class="line">  display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 选中其中一个tab标题时，修改样式 */</span><br><span class="line"></span><br><span class="line">.tab-item.tab-active &#123;</span><br><span class="line">  color: #fff;</span><br><span class="line">  /* box-sizing: border-box; */</span><br><span class="line">  background-color: #4675f9;</span><br><span class="line">  /* position: relative; */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 主体内容 预留头部导航栏的高度 */</span><br><span class="line"></span><br><span class="line">.tab-content &#123;</span><br><span class="line">  margin-top: 80rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 主体内容 scroll-view高度 */</span><br><span class="line"></span><br><span class="line">.scoll-h &#123;</span><br><span class="line">  height: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p><img src="/2019/03/22/WX-scroll-view-Tab/tab.gif" alt=""></p>
+
+      
+    </div>
+
+    
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------- The End -------------</div>
+    
+</div>
+
+    
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/03/22/WX-scroll-view-Tab/">WX-scroll-view-Tab</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
+  <p><span>发布时间:</span>2019年03月22日 - 10:03</p>
+  <p><span>最后更新:</span>2019年03月22日 - 11:03</p>
+  <p><span>原始链接:</span><a href="/2019/03/22/WX-scroll-view-Tab/" title="WX-scroll-view-Tab">http://yoursite.com/2019/03/22/WX-scroll-view-Tab/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/03/22/WX-scroll-view-Tab/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/微信小程序/" rel="tag"><i class="fa fa-tag"></i> 微信小程序</a>
+          
+            <a href="/tags/Tab导航栏/" rel="tag"><i class="fa fa-tag"></i> Tab导航栏</a>
+          
+            <a href="/tags/scroll-view/" rel="tag"><i class="fa fa-tag"></i> scroll-view</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/01/WX-radio-choose2/" rel="next" title="微信小程序-modal弹出框之免责声明">
+                <i class="fa fa-chevron-left"></i> 微信小程序-modal弹出框之免责声明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="White" />
+            
+              <p class="site-author-name" itemprop="name">White</p>
+              <p class="site-description motion-element" itemprop="description">人生苦短，何必将就</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/timor419" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:501689926@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://puke3615.github.io/" title="Puke" target="_blank">Puke</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#先来说明一下我们需要实现的最终效果："><span class="nav-number">1.</span> <span class="nav-text">先来说明一下我们需要实现的最终效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-WXML"><span class="nav-number"></span> <span class="nav-text">1. WXML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-JS"><span class="nav-number"></span> <span class="nav-text">2. JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-WXSS"><span class="nav-number"></span> <span class="nav-text">3. WXSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终效果"><span class="nav-number"></span> <span class="nav-text">最终效果</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">White</span>
+
+  
+
+  
+
+  <span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共8.6k字</span>
+</div>
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客人数: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_pv">
+    访问次量: <span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "Y7EUUkyGFrNTWpEJG0gyTh2K-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "Y7EUUkyGFrNTWpEJG0gyTh2K-gzGzoHsz",
+                'X-LC-Key': "voMf9IrLMAWKsm2zU0cpmEIh",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
