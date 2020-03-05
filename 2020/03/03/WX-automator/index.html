@@ -119,18 +119,21 @@
 
 
 
-  <meta name="description" content="这边将介绍微信小程序自动化内容，官方文档">
+  <meta name="description" content="这边将介绍微信小程序自动化内容，官方文档。 小程序自动化 SDK 本身不提供测试框架。这意味着你可以将它与市面上流行的任意 Node.js 测试框架结合使用，以此来达到编写小程序测试用例的目的。 官方使用 Jest 测试框架来编写小程序自动化测试（需要自己去学习）">
 <meta name="keywords" content="微信小程序,自动化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序-自动化">
 <meta property="og:url" content="http://yoursite.com/2020/03/03/WX-automator/index.html">
 <meta property="og:site_name" content="White&#39;s Blog">
-<meta property="og:description" content="这边将介绍微信小程序自动化内容，官方文档">
+<meta property="og:description" content="这边将介绍微信小程序自动化内容，官方文档。 小程序自动化 SDK 本身不提供测试框架。这意味着你可以将它与市面上流行的任意 Node.js 测试框架结合使用，以此来达到编写小程序测试用例的目的。 官方使用 Jest 测试框架来编写小程序自动化测试（需要自己去学习）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-03T11:34:37.401Z">
+<meta property="og:image" content="http://yoursite.com/2020/03/03/WX-automator/1.jpeg">
+<meta property="og:image" content="http://yoursite.com/2020/03/03/WX-automator/2.jpeg">
+<meta property="og:updated_time" content="2020-03-04T08:33:07.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序-自动化">
-<meta name="twitter:description" content="这边将介绍微信小程序自动化内容，官方文档">
+<meta name="twitter:description" content="这边将介绍微信小程序自动化内容，官方文档。 小程序自动化 SDK 本身不提供测试框架。这意味着你可以将它与市面上流行的任意 Node.js 测试框架结合使用，以此来达到编写小程序测试用例的目的。 官方使用 Jest 测试框架来编写小程序自动化测试（需要自己去学习）">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/03/WX-automator/1.jpeg">
 
 
 
@@ -367,12 +370,24 @@
                 
               
 
-              <time title="创建时间：2020-03-03 17:32:02 / 修改时间：19:34:37" itemprop="dateCreated datePublished" datetime="2020-03-03T17:32:02+08:00">2020-03-03</time>
+              <time title="创建时间：2020-03-03 17:32:02" itemprop="dateCreated datePublished" datetime="2020-03-03T17:32:02+08:00">2020-03-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-04 16:33:07" itemprop="dateModified" datetime="2020-03-04T16:33:07+08:00">2020-03-04</time>
               
             
           </span>
@@ -442,7 +457,9 @@
       
 
       
-        <p>这边将介绍微信小程序自动化内容，<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/quick-start.html" target="_blank" rel="noopener">官方文档</a></p>
+        <p>这边将介绍微信小程序自动化内容，<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/quick-start.html" target="_blank" rel="noopener">官方文档</a>。</p>
+<p>小程序自动化 SDK 本身不提供测试框架。这意味着你可以将它与市面上流行的任意 Node.js 测试框架结合使用，以此来达到编写小程序测试用例的目的。</p>
+<p>官方使用 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjestjs.io%2F" target="_blank" rel="noopener">Jest</a> 测试框架来编写小程序自动化测试（需要自己去学习）</p>
 <a id="more"></a>
 <h3 id="运行环境："><a href="#运行环境：" class="headerlink" title="运行环境："></a>运行环境：</h3><ul>
 <li>安装 Node.js 并且版本大于 8.0</li>
@@ -453,7 +470,51 @@
 <p>开发者工具稳定版下载：<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html</a></p>
 </blockquote>
 <hr>
-<h3 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h3><p>下载小程序Demo，并导入开发者工具</p>
+<h3 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h3><ol>
+<li>下载小程序<a href="https://github.com/wechat-miniprogram/miniprogram-demo" target="_blank" rel="noopener">Demo</a>示例的源码到本地，然后打开小程序工具，将该项目导入进去。</li>
+<li>新建文件夹 <code>miniprogram-demo-test</code> 放置测试代码。</li>
+</ol>
+<p><img src="/2020/03/03/WX-automator/1.jpeg" style="zoom:50%;"></p>
+<ol start="3">
+<li><p>命令行执行以下命令安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i miniprogram-automator --save-dev    //在需要测试的项目目录下安装小程序自动化SDK</span><br><span class="line">npm i miniprogram-automator jest     //Jest依赖</span><br><span class="line">npm i jest -g    //Jest依赖</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li><p>打开开发者工具中CLI/HTTP 调用功能</p>
+<blockquote>
+<p>必须开启以上选项，否则 SDK 将无法正常启动工具自动化功能。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>打开微信开发者工具</li>
+<li>选择【设置】</li>
+<li>选择【安全设置】</li>
+<li>选择【安全】</li>
+<li>勾选【开启】按钮</li>
+</ul>
+<p><img src="/2020/03/03/WX-automator/2.jpeg" alt=""></p>
+<hr>
+<h3 id="编写自动化测试脚本"><a href="#编写自动化测试脚本" class="headerlink" title="编写自动化测试脚本"></a>编写自动化测试脚本</h3><ol>
+<li>创建测试文件index.js</li>
+<li>编写测试脚本，思路如下<ul>
+<li>启动并连接工具</li>
+<li>重新启动小程序到首页</li>
+<li>断开连接并关闭工具</li>
+</ul>
+</li>
+<li>对应脚本如下</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> automator = <span class="built_in">require</span>(<span class="string">'miniprogram-automator'</span>)</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'【小程序自动化测试】'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> miniProgram</span><br><span class="line">  <span class="keyword">let</span> page</span><br><span class="line"></span><br><span class="line">  beforeAll(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    miniProgram = <span class="keyword">await</span> automator.launch(&#123; <span class="comment">// 第一步：启动并连接工具</span></span><br><span class="line">      projectPath: <span class="string">'/Users/white/Desktop/demo/miniprogram-demo'</span> <span class="comment">// /Users/white/Desktop/demo/miniprogram-demo  为项目在电脑本地位置</span></span><br><span class="line">    &#125;)</span><br><span class="line">    page = <span class="keyword">await</span> miniProgram.reLaunch(<span class="string">'/page/component/index'</span>)  <span class="comment">// 第二步：重新启动小程序到首页</span></span><br><span class="line">    <span class="keyword">await</span> page.waitFor(<span class="number">500</span>)</span><br><span class="line">  &#125;, <span class="number">30000</span>)</span><br><span class="line"></span><br><span class="line">  afterAll(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *  miniProgram.close()    表示：断开与小程序运行时的连接并关闭项目窗口</span></span><br><span class="line"><span class="comment">    *  miniProgram. disconnect()    表示：断开与小程序运行时的连接</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">await</span> miniProgram.close() <span class="comment">//第三步：断开连接并关闭工具或者使用</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="执行脚本，查看执行结果"><a href="#执行脚本，查看执行结果" class="headerlink" title="执行脚本，查看执行结果"></a>执行脚本，查看执行结果</h3><ol>
+<li>执行脚本，命令行输入：<br><code>jest miniprogram-demo-test/index.js /Users/white/Desktop/demo/miniprogram-demo</code>   </li>
+</ol>
+<blockquote>
+<p>miniprogram-demo-test/index.js 为测试脚本路径</p>
+<p>/Users/white/Desktop/demo/miniprogram-demo  为项目在电脑本地位置</p>
+</blockquote>
 
       
     </div>
@@ -486,7 +547,7 @@
   <p><span>本文标题:</span><a href="/2020/03/03/WX-automator/">微信小程序-自动化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
   <p><span>发布时间:</span>2020年03月03日 - 17:03</p>
-  <p><span>最后更新:</span>2020年03月03日 - 19:03</p>
+  <p><span>最后更新:</span>2020年03月04日 - 16:03</p>
   <p><span>原始链接:</span><a href="/2020/03/03/WX-automator/" title="微信小程序-自动化">http://yoursite.com/2020/03/03/WX-automator/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/03/03/WX-automator/"  aria-label="复制成功！"></i></span>
   </p>
@@ -771,7 +832,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行环境："><span class="nav-number">1.</span> <span class="nav-text">运行环境：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化："><span class="nav-number">2.</span> <span class="nav-text">初始化：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行环境："><span class="nav-number">1.</span> <span class="nav-text">运行环境：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化："><span class="nav-number">2.</span> <span class="nav-text">初始化：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写自动化测试脚本"><span class="nav-number">3.</span> <span class="nav-text">编写自动化测试脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行脚本，查看执行结果"><span class="nav-number">4.</span> <span class="nav-text">执行脚本，查看执行结果</span></a></li></ol></div>
             
 
           </div>
@@ -805,7 +866,7 @@
   <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共16.3k字</span>
+  <span class="post-count">博客全站共16.8k字</span>
 </div>
 </div>
 
