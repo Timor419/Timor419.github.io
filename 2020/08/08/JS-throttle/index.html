@@ -127,12 +127,12 @@
 <meta property="og:site_name" content="White&#39;s Blog">
 <meta property="og:description" content="前言在进行页面窗口的resize、scroll、输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验非常糟糕。此时我们可以采用debounce（防抖）和throttle（节流）的方式来减少调用频率，同时又不影响实际效果，这篇文章将主要分析函数节流。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2020/08/08/JS-throttle/1.GIF">
-<meta property="og:updated_time" content="2020-08-08T08:27:11.771Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/08/JS-throttle/1.gif">
+<meta property="og:updated_time" content="2020-08-08T08:38:53.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-throttle-函数节流">
 <meta name="twitter:description" content="前言在进行页面窗口的resize、scroll、输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验非常糟糕。此时我们可以采用debounce（防抖）和throttle（节流）的方式来减少调用频率，同时又不影响实际效果，这篇文章将主要分析函数节流。">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/08/JS-throttle/1.GIF">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/08/JS-throttle/1.gif">
 
 
 
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2020-08-08 13:43:11 / 修改时间：16:27:11" itemprop="dateCreated datePublished" datetime="2020-08-08T13:43:11+08:00">2020-08-08</time>
+              <time title="创建时间：2020-08-08 13:43:11 / 修改时间：16:38:53" itemprop="dateCreated datePublished" datetime="2020-08-08T13:43:11+08:00">2020-08-08</time>
             
 
             
@@ -453,7 +453,7 @@
 <p>适用场景：</p>
 <p>输入框内容校验、页面滚动请求数据等。</p>
 <h4 id="JS代码："><a href="#JS代码：" class="headerlink" title="JS代码："></a>JS代码：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> timeout;</span><br><span class="line"><span class="comment">// 函数节流</span></span><br><span class="line"> throttle(func, thres) &#123;</span><br><span class="line">   <span class="keyword">const</span> threshhold = thres || <span class="number">200</span>;</span><br><span class="line">   <span class="comment">// eslint-disable-next-line consistent-return</span></span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     clearTimeout(timeout);</span><br><span class="line">     timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (func) &#123;</span><br><span class="line">         func();</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;, threshhold);</span><br><span class="line">   &#125;;</span><br><span class="line"> &#125;,</span><br><span class="line">   </span><br><span class="line"> <span class="comment">// 输入信息</span></span><br><span class="line"> inputInfo(e) &#123;</span><br><span class="line">   <span class="keyword">const</span> searchKey = e.detail.value;</span><br><span class="line">   <span class="keyword">const</span> func = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">this</span>.setInput(searchKey);</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">this</span>.throttle(func)();</span><br><span class="line"> &#125;,</span><br><span class="line">   </span><br><span class="line"> <span class="comment">// 网络请求</span></span><br><span class="line"> setInput(searchKey) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'网络请求'</span>, searchKey);</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
-<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><p><img src="/2020/08/08/JS-throttle/1.GIF" alt=""></p>
+<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><p><img src="/2020/08/08/JS-throttle/1.gif" alt=""></p>
 
       
     </div>
