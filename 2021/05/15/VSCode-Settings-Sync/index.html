@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="说明： vscode作为使用开发的IDE工具深受广大码农的喜爱，但是其自身并不具备备份设置的功能，在更换电脑时这个问题显得尤为令人头疼，本文将详细介绍如何解决重新安装各种插件、配置各种快捷键、setting等问题。">
+<meta name="keywords" content="VSCode,插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode-Settings Sync 同步设置">
+<meta property="og:url" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/index.html">
+<meta property="og:site_name" content="White&#39;s Blog">
+<meta property="og:description" content="说明： vscode作为使用开发的IDE工具深受广大码农的喜爱，但是其自身并不具备备份设置的功能，在更换电脑时这个问题显得尤为令人头疼，本文将详细介绍如何解决重新安装各种插件、配置各种快捷键、setting等问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/GitHub1.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/GitHub2.jpeg">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/GitHub3.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/1.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/2.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/3.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/4.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/5.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/6.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/7.png">
+<meta property="og:updated_time" content="2021-05-15T10:20:32.144Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSCode-Settings Sync 同步设置">
+<meta name="twitter:description" content="说明： vscode作为使用开发的IDE工具深受广大码农的喜爱，但是其自身并不具备备份设置的功能，在更换电脑时这个问题显得尤为令人头疼，本文将详细介绍如何解决重新安装各种插件、配置各种快捷键、setting等问题。">
+<meta name="twitter:image" content="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/VSCode-Settings-Sync/GitHub1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>VSCode-Settings Sync 同步设置 | White's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fb6494b341acb61c4f515a65954d2513";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/timor419"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">White's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Life is too short to compromise</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="White">
+      <meta itemprop="description" content="人生苦短，何必将就">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="White's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VSCode-Settings Sync 同步设置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-05-15 17:13:39 / 修改时间：18:20:32" itemprop="dateCreated datePublished" datetime="2021-05-15T17:13:39+08:00">2021-05-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/VSCode-插件/" itemprop="url" rel="index"><span itemprop="name">VSCode-插件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/05/15/VSCode-Settings-Sync/" class="leancloud_visitors" data-flag-title="VSCode-Settings Sync 同步设置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>说明：</p>
+<p>vscode作为使用开发的IDE工具深受广大码农的喜爱，但是其自身并不具备备份设置的功能，在更换电脑时这个问题显得尤为令人头疼，本文将详细介绍如何解决重新安装各种插件、配置各种快捷键、setting等问题。</p>
+<a id="more"></a>
+<hr>
+<p>我们可以借助 <code>setting-sync</code> 插件很好的解决更换电脑时重新安装各种插件、配置各种快捷键、setting等设置的问题，具体怎么操作，下面会一一介绍。</p>
+<h4 id="一、创建Github-Token"><a href="#一、创建Github-Token" class="headerlink" title="一、创建Github Token"></a>一、创建Github Token</h4><ol>
+<li>登陆GitHub进入你的 <code>Settings\Developer settings</code> 界面，选择<code>Personal access tokens</code>，点击 <code>Generate new token</code>。</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/GitHub1.png" alt="image-20210515174434917"></p>
+<ol start="2">
+<li>按照下图进行设置。</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/GitHub2.jpeg" alt="GitHub2"></p>
+<ol start="3">
+<li>点击 <code>Generate token</code> 进行生成，复制该字符串。</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/GitHub3.png" alt="image-20210515174904024"></p>
+<h4 id="二、安装-setting-sync"><a href="#二、安装-setting-sync" class="headerlink" title="二、安装 setting-sync"></a>二、安装 <code>setting-sync</code></h4><p>在vscode插件中心搜索 <code>setting-sync</code> 这个插件，点击安装。</p>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/1.png" alt="image-20210515172616772"></p>
+<h4 id="三、设置-setting-sync"><a href="#三、设置-setting-sync" class="headerlink" title="三、设置 setting-sync"></a>三、设置 <code>setting-sync</code></h4><ol>
+<li>在vscode中按快捷键<code>shift + command + p</code>  ，出现以下搜索框</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/2.png" alt="image-20210515173039834"></p>
+<ol start="2">
+<li>在搜索框内输入搜索：<code>Sync:Advanced Options</code>，点击选中该选项</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/3.png" alt="image-20210515173341757"></p>
+<ol start="3">
+<li>选中【打开设置】</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/4.png" alt="image-20210515173443365"></p>
+<ol start="4">
+<li>选中以下设置</li>
+</ol>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/5.png" alt="image-20210515173825106"></p>
+<h4 id="四、上传配置"><a href="#四、上传配置" class="headerlink" title="四、上传配置"></a>四、上传配置</h4><p>复制步骤一中GitHut中生成的字符串，按快捷键<code>Alt + Shift + U</code>，完成配置上传</p>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/6.png" alt="image-20210515175952405"></p>
+<h4 id="五、新电脑中下载配置"><a href="#五、新电脑中下载配置" class="headerlink" title="五、新电脑中下载配置"></a>五、新电脑中下载配置</h4><p>在新电脑中打开vscode，安装 <code>setting-sync</code> ，完成步骤二、三，按快捷键<code>Alt + Shift + D</code>，选中下图按钮，复制旧电脑中的Gist ID到新电脑vscode对应位置，即可完成下载 </p>
+<p><img src="/2021/05/15/VSCode-Settings-Sync/./VSCode-Settings-Sync/7.png" alt="image-20210515180924612"></p>
+
+      
+    </div>
+
+    
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------- The End -------------</div>
+    
+</div>
+
+    
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2021/05/15/VSCode-Settings-Sync/">VSCode-Settings Sync 同步设置</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
+  <p><span>发布时间:</span>2021年05月15日 - 17:05</p>
+  <p><span>最后更新:</span>2021年05月15日 - 18:05</p>
+  <p><span>原始链接:</span><a href="/2021/05/15/VSCode-Settings-Sync/" title="VSCode-Settings Sync 同步设置">http://yoursite.com/2021/05/15/VSCode-Settings-Sync/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2021/05/15/VSCode-Settings-Sync/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VSCode/" rel="tag"><i class="fa fa-tag"></i> VSCode</a>
+          
+            <a href="/tags/插件/" rel="tag"><i class="fa fa-tag"></i> 插件</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/10/CSS-white-space/妈妈创业节/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="White" />
+            
+              <p class="site-author-name" itemprop="name">White</p>
+              <p class="site-description motion-element" itemprop="description">人生苦短，何必将就</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/timor419" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:501689926@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://puke3615.github.io/" title="Puke" target="_blank">Puke</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建Github-Token"><span class="nav-number">1.</span> <span class="nav-text">一、创建Github Token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、安装-setting-sync"><span class="nav-number">2.</span> <span class="nav-text">二、安装 setting-sync</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、设置-setting-sync"><span class="nav-number">3.</span> <span class="nav-text">三、设置 setting-sync</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、上传配置"><span class="nav-number">4.</span> <span class="nav-text">四、上传配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、新电脑中下载配置"><span class="nav-number">5.</span> <span class="nav-text">五、新电脑中下载配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">White</span>
+
+  
+
+  
+
+  <span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共19.8k字</span>
+</div>
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客人数: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_pv">
+    访问次量: <span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "Y7EUUkyGFrNTWpEJG0gyTh2K-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "Y7EUUkyGFrNTWpEJG0gyTh2K-gzGzoHsz",
+                'X-LC-Key': "voMf9IrLMAWKsm2zU0cpmEIh",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
