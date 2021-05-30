@@ -127,19 +127,19 @@
 <meta property="og:site_name" content="White&#39;s Blog">
 <meta property="og:description" content="简介： 本文主要介绍通过设置CSS的white-space属性来处理元素内的空白、空白符，以实现文本的不换行、自动换行、空白保留或合并。 这边先列一下white-space可以设置的值，及其作用：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/0.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/1.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/2.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/3.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/4.1.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/4.2.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/4.2.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/1.png">
-<meta property="og:updated_time" content="2021-04-07T15:02:53.068Z">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/0.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/1.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/2.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/3.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/4.1.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/4.2.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/4.2.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/07/CSS-white-space/1.png">
+<meta property="og:updated_time" content="2021-05-30T05:59:21.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS-文本换行处理-white-space">
 <meta name="twitter:description" content="简介： 本文主要介绍通过设置CSS的white-space属性来处理元素内的空白、空白符，以实现文本的不换行、自动换行、空白保留或合并。 这边先列一下white-space可以设置的值，及其作用：">
-<meta name="twitter:image" content="http://yoursite.com/2021/04/07/CSS-white-space/CSS-white-space/0.png">
+<meta name="twitter:image" content="http://yoursite.com/2021/04/07/CSS-white-space/0.png">
 
 
 
@@ -376,12 +376,24 @@
                 
               
 
-              <time title="创建时间：2021-04-07 21:26:45 / 修改时间：23:02:53" itemprop="dateCreated datePublished" datetime="2021-04-07T21:26:45+08:00">2021-04-07</time>
+              <time title="创建时间：2021-04-07 21:26:45" itemprop="dateCreated datePublished" datetime="2021-04-07T21:26:45+08:00">2021-04-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-05-30 13:59:21" itemprop="dateModified" datetime="2021-05-30T13:59:21+08:00">2021-05-30</time>
               
             
           </span>
@@ -454,49 +466,49 @@
         <p>简介：</p>
 <p>本文主要介绍通过设置CSS的white-space属性来处理元素内的空白、空白符，以实现文本的不换行、自动换行、空白保留或合并。</p>
 <p>这边先列一下white-space可以设置的值，及其作用：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/0.png" alt="image-20210407215653645"></p>
+<p><img src="/2021/04/07/CSS-white-space/0.png" alt=""></p>
 <a id="more"></a>
 <hr>
 <h4 id="一、normal"><a href="#一、normal" class="headerlink" title="一、normal"></a>一、normal</h4><p>作用：默认，空白会被浏览器忽略。</p>
 <h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"normal"</span>&gt;</span></span><br><span class="line">这是一些文本。</span><br><span class="line">这是一些文本。</span><br><span class="line">这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.normal</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:normal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/1.png" alt="image-20210407220055421"></p>
+<p><img src="/2021/04/07/CSS-white-space/1.png" alt=""></p>
 <hr>
 <h4 id="二、pre"><a href="#二、pre" class="headerlink" title="二、pre"></a>二、pre</h4><p>作用：空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。</pre></p>
 <h5 id="HTML-1"><a href="#HTML-1" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pre"</span>&gt;</span></span><br><span class="line">这是一些文本。</span><br><span class="line">这是一些文本。</span><br><span class="line">这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS-1"><a href="#CSS-1" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pre</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:pre</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/2.png" alt="image-20210407220435967"></p>
+<p><img src="/2021/04/07/CSS-white-space/2.png" alt=""></p>
 <hr>
 <h4 id="三、nowrap"><a href="#三、nowrap" class="headerlink" title="三、nowrap"></a>三、nowrap</h4><p>作用：文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。</p>
 <h5 id="HTML-2"><a href="#HTML-2" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nowrap"</span>&gt;</span></span><br><span class="line">这是一些文本。</span><br><span class="line">这是一些文本。<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS-2"><a href="#CSS-2" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nowrap</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:nowrap</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/3.png" alt="image-20210407221757737"></p>
+<p><img src="/2021/04/07/CSS-white-space/3.png" alt=""></p>
 <hr>
 <h4 id="四、pre-wrap"><a href="#四、pre-wrap" class="headerlink" title="四、pre-wrap"></a>四、pre-wrap</h4><p>作用：保留空白符序列，但是正常地进行换行。</p>
 <h5 id="HTML-3"><a href="#HTML-3" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pre-wrap"</span>&gt;</span></span><br><span class="line">这是一些文本。这是一些文本。<span class="tag">&lt;<span class="name">br</span>/&gt;</span>这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS-3"><a href="#CSS-3" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pre-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:pre-wrap</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/4.1.png" alt="image-20210407222051073"></p>
+<p><img src="/2021/04/07/CSS-white-space/4.1.png" alt=""></p>
 <hr>
 <h5 id="HTML-4"><a href="#HTML-4" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pre-wrap"</span>&gt;</span></span><br><span class="line">这是一些文本。这是一些文本。<span class="tag">&lt;<span class="name">br</span>/&gt;</span>这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS-4"><a href="#CSS-4" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pre-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:pre-wrap</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/4.2.png" alt="image-20210407222241083"></p>
+<p><img src="/2021/04/07/CSS-white-space/4.2.png" alt=""></p>
 <hr>
 <h4 id="五、pre-line"><a href="#五、pre-line" class="headerlink" title="五、pre-line"></a>五、pre-line</h4><p>作用：合并空白符序列，但是保留换行符。</p>
 <h5 id="HTML-5"><a href="#HTML-5" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pre-line"</span>&gt;</span></span><br><span class="line">这是一些文本。          这是一些文本。</span><br><span class="line">这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS-5"><a href="#CSS-5" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pre-line</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:pre-wrap</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/4.2.png" alt="image-20210407222241083"></p>
+<p><img src="/2021/04/07/CSS-white-space/4.2.png" alt=""></p>
 <hr>
 <h4 id="六、inherit"><a href="#六、inherit" class="headerlink" title="六、inherit"></a>六、inherit</h4><p>作用：规定应该从父元素继承 white-space 属性的值。</p>
 <h5 id="HTML-6"><a href="#HTML-6" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inherit"</span>&gt;</span></span><br><span class="line">这是一些文本。          </span><br><span class="line">这是一些文本。</span><br><span class="line">这是一些文本。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="CSS-6"><a href="#CSS-6" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.inherit</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>:inherit</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="/2021/04/07/CSS-white-space/./CSS-white-space/1.png" alt="image-20210407220055421"></p>
+<p><img src="/2021/04/07/CSS-white-space/1.png" alt=""></p>
 <p>##### </p>
 
       
@@ -530,7 +542,7 @@
   <p><span>本文标题:</span><a href="/2021/04/07/CSS-white-space/">CSS-文本换行处理-white-space</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
   <p><span>发布时间:</span>2021年04月07日 - 21:04</p>
-  <p><span>最后更新:</span>2021年04月07日 - 23:04</p>
+  <p><span>最后更新:</span>2021年05月30日 - 13:05</p>
   <p><span>原始链接:</span><a href="/2021/04/07/CSS-white-space/" title="CSS-文本换行处理-white-space">http://yoursite.com/2021/04/07/CSS-white-space/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2021/04/07/CSS-white-space/"  aria-label="复制成功！"></i></span>
   </p>
@@ -661,7 +673,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -690,7 +702,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -765,7 +779,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -863,7 +881,7 @@
   <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19.8k字</span>
+  <span class="post-count">博客全站共21.2k字</span>
 </div>
 </div>
 
