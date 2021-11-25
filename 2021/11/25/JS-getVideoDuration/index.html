@@ -119,24 +119,25 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="介绍本文主要介绍在获取到视频的URL之后，如何通过js方法获取视频的总时长，兼容了web页面、APP内嵌h5页面、小程序内嵌h5页面~">
+<meta name="keywords" content="JS,微信小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/14/hello-world/index.html">
+<meta property="og:title" content="JS-获取视频总时长">
+<meta property="og:url" content="http://yoursite.com/2021/11/25/JS-getVideoDuration/index.html">
 <meta property="og:site_name" content="White&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="介绍本文主要介绍在获取到视频的URL之后，如何通过js方法获取视频的总时长，兼容了web页面、APP内嵌h5页面、小程序内嵌h5页面~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-09T06:53:37.000Z">
+<meta property="og:updated_time" content="2021-11-25T04:14:15.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="JS-获取视频总时长">
+<meta name="twitter:description" content="介绍本文主要介绍在获取到视频的URL之后，如何通过js方法获取视频的总时长，兼容了web页面、APP内嵌h5页面、小程序内嵌h5页面~">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/14/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/11/25/JS-getVideoDuration/"/>
 
 
 
@@ -146,7 +147,7 @@
   };
 </script>
 
-  <title>Hello World | White's Blog</title>
+  <title>JS-获取视频总时长 | White's Blog</title>
   
 
 
@@ -324,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/25/JS-getVideoDuration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="White">
@@ -341,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">JS-获取视频总时长
               
             
           </h1>
@@ -366,29 +367,35 @@
                 
               
 
-              <time title="创建时间：2018-08-14 23:02:54" itemprop="dateCreated datePublished" datetime="2018-08-14T23:02:54+08:00">2018-08-14</time>
+              <time title="创建时间：2021-11-25 10:26:32 / 修改时间：12:14:15" itemprop="dateCreated datePublished" datetime="2021-11-25T10:26:32+08:00">2021-11-25</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-09 14:53:37" itemprop="dateModified" datetime="2018-09-09T14:53:37+08:00">2018-09-09</time>
               
             
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术-JS/" itemprop="url" rel="index"><span itemprop="name">技术-JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -396,7 +403,7 @@
 
           
           
-             <span id="/2018/08/14/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2021/11/25/JS-getVideoDuration/" class="leancloud_visitors" data-flag-title="JS-获取视频总时长">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,16 +442,16 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文主要介绍在获取到视频的URL之后，如何通过js方法获取视频的总时长，兼容了web页面、APP内嵌h5页面、小程序内嵌h5页面~</p>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h4 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h4><p>web页面、APP内嵌h5页面、小程序内嵌h5页面</p>
+<h4 id="JS代码："><a href="#JS代码：" class="headerlink" title="JS代码："></a>JS代码：</h4><p>一、获取视频时长方法</p>
+<blockquote>
+<p>注：其中getENVIR、checkIfIOS方法见链接：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">getVideoDuration(url) &#123;</span><br><span class="line">  <span class="comment">// IOS的微信小程序中无法触发onloadedmetadata</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.getENVIR() === <span class="string">'wxapp'</span> &amp;&amp; <span class="keyword">this</span>.checkIfIOS()) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">reslove</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> audio = <span class="keyword">new</span> Audio(url);</span><br><span class="line">      audio.muted = <span class="literal">true</span>;</span><br><span class="line">      audio.play().then(<span class="function"><span class="params">()</span> =&gt;</span> audio.pause());</span><br><span class="line">      audio.addEventListener(<span class="string">'loadedmetadata'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        reslove(<span class="built_in">parseInt</span>((audio.duration * <span class="number">1000</span>).toString(), <span class="number">10</span>));</span><br><span class="line">      &#125;);</span><br><span class="line">      audio.muted = <span class="literal">false</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">reslove</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> video = <span class="built_in">document</span>.createElement(<span class="string">'video'</span>);</span><br><span class="line">    video.preload = <span class="string">'metadata'</span>;</span><br><span class="line">    video.src = url;</span><br><span class="line">    video.onloadedmetadata = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      reslove(<span class="built_in">parseInt</span>((video.duration * <span class="number">1000</span>).toString(), <span class="number">10</span>));</span><br><span class="line">      video = <span class="literal">null</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>二、调用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> duration = <span class="keyword">this</span>.getVideoDuration(<span class="string">'https://cdn.webuy.ai/static/lib/resource/2021/11/25/1637813076906_4250.mp4'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'视频总时长：'</span>, duration);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -474,12 +481,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/08/14/hello-world/">Hello World</a></p>
+  <p><span>本文标题:</span><a href="/2021/11/25/JS-getVideoDuration/">JS-获取视频总时长</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
-  <p><span>发布时间:</span>2018年08月14日 - 23:08</p>
-  <p><span>最后更新:</span>2018年09月09日 - 14:09</p>
-  <p><span>原始链接:</span><a href="/2018/08/14/hello-world/" title="Hello World">http://yoursite.com/2018/08/14/hello-world/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/08/14/hello-world/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2021年11月25日 - 10:11</p>
+  <p><span>最后更新:</span>2021年11月25日 - 12:11</p>
+  <p><span>原始链接:</span><a href="/2021/11/25/JS-getVideoDuration/" title="JS-获取视频总时长">http://yoursite.com/2021/11/25/JS-getVideoDuration/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2021/11/25/JS-getVideoDuration/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -507,6 +514,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/tags/微信小程序/" rel="tag"><i class="fa fa-tag"></i> 微信小程序</a>
+          
+        </div>
+      
 
       
       
@@ -516,14 +531,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2021/05/30/Mac-set-front-environment/" rel="next" title="Mac-搭建前端环境">
+                <i class="fa fa-chevron-left"></i> Mac-搭建前端环境
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/01/Page-Layout1/" rel="prev" title="页面整体布局（一列固定宽度且居中、上下通栏）">
-                页面整体布局（一列固定宽度且居中、上下通栏） <i class="fa fa-chevron-right"></i>
+              <a href="/2021/11/25/JS-getEnvironment/" rel="prev" title="JS-环境判断：小程序、公众号、浏览器、APP、安卓、IOS">
+                JS-环境判断：小程序、公众号、浏览器、APP、安卓、IOS <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -772,7 +791,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用场景："><span class="nav-number">2.</span> <span class="nav-text">适用场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS代码："><span class="nav-number">3.</span> <span class="nav-text">JS代码：</span></a></li></ol></div>
             
 
           </div>
