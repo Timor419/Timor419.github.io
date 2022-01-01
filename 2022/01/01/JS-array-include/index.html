@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="介绍本文主要介绍判断数组中是否存在某个元素、并返回所有满足条件的元素；判断数组中的Object中是否存在某个满足条件的元素、并返回所有满足条件的元素、判断数组中的Object中是否存在某个key（键）">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-判断 数组中&#x2F;对象数组中 是否存在某个元素&#x2F;key（键）">
+<meta property="og:url" content="http://yoursite.com/2022/01/01/JS-array-include/index.html">
+<meta property="og:site_name" content="White&#39;s Blog">
+<meta property="og:description" content="介绍本文主要介绍判断数组中是否存在某个元素、并返回所有满足条件的元素；判断数组中的Object中是否存在某个满足条件的元素、并返回所有满足条件的元素、判断数组中的Object中是否存在某个key（键）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-01-01T12:29:37.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS-判断 数组中&#x2F;对象数组中 是否存在某个元素&#x2F;key（键）">
+<meta name="twitter:description" content="介绍本文主要介绍判断数组中是否存在某个元素、并返回所有满足条件的元素；判断数组中的Object中是否存在某个满足条件的元素、并返回所有满足条件的元素、判断数组中的Object中是否存在某个key（键）">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/01/01/JS-array-include/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JS-判断 数组中/对象数组中 是否存在某个元素/key（键） | White's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fb6494b341acb61c4f515a65954d2513";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/timor419"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">White's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Life is too short to compromise</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/01/JS-array-include/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="White">
+      <meta itemprop="description" content="人生苦短，何必将就">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="White's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS-判断 数组中/对象数组中 是否存在某个元素/key（键）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-01-01 19:42:00 / 修改时间：20:29:37" itemprop="dateCreated datePublished" datetime="2022-01-01T19:42:00+08:00">2022-01-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术-JS/" itemprop="url" rel="index"><span itemprop="name">技术-JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2022/01/01/JS-array-include/" class="leancloud_visitors" data-flag-title="JS-判断 数组中/对象数组中 是否存在某个元素/key（键）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文主要介绍判断数组中是否存在某个元素、并返回所有满足条件的元素；判断数组中的Object中是否存在某个满足条件的元素、并返回所有满足条件的元素、判断数组中的Object中是否存在某个key（键）</p>
+<a id="more"></a>
+<h3 id="一、数组中元素为number、string"><a href="#一、数组中元素为number、string" class="headerlink" title="一、数组中元素为number、string"></a>一、数组中元素为number、string</h3><h4 id="1-判断数组中是否存在某个元素"><a href="#1-判断数组中是否存在某个元素" class="headerlink" title="1. 判断数组中是否存在某个元素"></a>1. 判断数组中是否存在某个元素</h4><p>例：arr=[1,2,3,4];</p>
+<h5 id="JS方法："><a href="#JS方法：" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.indexOf(<span class="number">3</span>) &gt; <span class="number">-1</span>; <span class="comment">// true</span></span><br><span class="line">arr.indexOf(<span class="number">9</span>) &gt; <span class="number">-1</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="2-判断数组中是否存在某个满足条件的元素，并返回所有满足条件的元素"><a href="#2-判断数组中是否存在某个满足条件的元素，并返回所有满足条件的元素" class="headerlink" title="2. 判断数组中是否存在某个满足条件的元素，并返回所有满足条件的元素"></a>2. 判断数组中是否存在某个满足条件的元素，并返回所有满足条件的元素</h4><p>例：筛选数组中的所有奇数：arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];</p>
+<h5 id="JS方法：-1"><a href="#JS方法：-1" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> item % <span class="number">2</span> === <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(list); <span class="comment">// [ 1, 3, 5, 7, 9 ]</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="二、数组中元素为object"><a href="#二、数组中元素为object" class="headerlink" title="二、数组中元素为object"></a>二、数组中元素为object</h3><h4 id="1-判断数组中的Object中是否存在某个满足条件的元素"><a href="#1-判断数组中的Object中是否存在某个满足条件的元素" class="headerlink" title="1. 判断数组中的Object中是否存在某个满足条件的元素"></a>1. 判断数组中的Object中是否存在某个满足条件的元素</h4><p>例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = [</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'张三'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>, <span class="attr">age</span>:<span class="number">11</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'李四'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>, <span class="attr">age</span>:<span class="number">22</span>&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h5 id="JS方法：-2"><a href="#JS方法：-2" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.some(<span class="function"><span class="params">item</span> =&gt;</span> item.name === <span class="string">'张三'</span>); <span class="comment">// true</span></span><br><span class="line">arr.some(<span class="function"><span class="params">item</span> =&gt;</span> item.name === <span class="string">'王五'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="2-判断数组中的Object中是否存在某个满足条件的元素，并返回所有满足条件的元素"><a href="#2-判断数组中的Object中是否存在某个满足条件的元素，并返回所有满足条件的元素" class="headerlink" title="2. 判断数组中的Object中是否存在某个满足条件的元素，并返回所有满足条件的元素"></a>2. 判断数组中的Object中是否存在某个满足条件的元素，并返回所有满足条件的元素</h4><p>例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'张三'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>, <span class="attr">age</span>:<span class="number">11</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'李四'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>, <span class="attr">age</span>:<span class="number">22</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'王五'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>, <span class="attr">age</span>:<span class="number">33</span>&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h5 id="JS方法：-3"><a href="#JS方法：-3" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.age === <span class="number">11</span>);</span><br><span class="line"><span class="built_in">console</span>.log(list); <span class="comment">//  [&#123; name: '张三', sex: '男', age: 11 &#125;,&#123; name: '王五', sex: '男', age: 11 &#125;]</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="3-判断数组中的Object中是否存在某个key（键）"><a href="#3-判断数组中的Object中是否存在某个key（键）" class="headerlink" title="3. 判断数组中的Object中是否存在某个key（键）"></a>3. 判断数组中的Object中是否存在某个key（键）</h4><p>例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'张三'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'李四'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'王五'</span>, <span class="attr">sex</span>:<span class="string">'男'</span>&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h5 id="JS方法：-4"><a href="#JS方法：-4" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.some(<span class="function"><span class="params">item</span>=&gt;</span><span class="built_in">Object</span>.hasOwnProperty.call(item,<span class="string">'name'</span>)); <span class="comment">// true</span></span><br><span class="line">arr.some(<span class="function"><span class="params">item</span>=&gt;</span><span class="built_in">Object</span>.hasOwnProperty.call(item,<span class="string">'age'</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------- The End -------------</div>
+    
+</div>
+
+    
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2022/01/01/JS-array-include/">JS-判断 数组中/对象数组中 是否存在某个元素/key（键）</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
+  <p><span>发布时间:</span>2022年01月01日 - 19:01</p>
+  <p><span>最后更新:</span>2022年01月01日 - 20:01</p>
+  <p><span>原始链接:</span><a href="/2022/01/01/JS-array-include/" title="JS-判断 数组中/对象数组中 是否存在某个元素/key（键）">http://yoursite.com/2022/01/01/JS-array-include/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2022/01/01/JS-array-include/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/11/25/JS-getEnvironment/" rel="next" title="JS-环境判断：小程序、公众号、浏览器、APP、安卓、IOS">
+                <i class="fa fa-chevron-left"></i> JS-环境判断：小程序、公众号、浏览器、APP、安卓、IOS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="White" />
+            
+              <p class="site-author-name" itemprop="name">White</p>
+              <p class="site-description motion-element" itemprop="description">人生苦短，何必将就</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/timor419" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:501689926@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://puke3615.github.io/" title="Puke" target="_blank">Puke</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、数组中元素为number、string"><span class="nav-number"></span> <span class="nav-text">一、数组中元素为number、string</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-判断数组中是否存在某个元素"><span class="nav-number">1.</span> <span class="nav-text">1. 判断数组中是否存在某个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法："><span class="nav-number">1.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-判断数组中是否存在某个满足条件的元素，并返回所有满足条件的元素"><span class="nav-number">2.</span> <span class="nav-text">2. 判断数组中是否存在某个满足条件的元素，并返回所有满足条件的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-1"><span class="nav-number">2.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、数组中元素为object"><span class="nav-number"></span> <span class="nav-text">二、数组中元素为object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-判断数组中的Object中是否存在某个满足条件的元素"><span class="nav-number">1.</span> <span class="nav-text">1. 判断数组中的Object中是否存在某个满足条件的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-2"><span class="nav-number">1.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-判断数组中的Object中是否存在某个满足条件的元素，并返回所有满足条件的元素"><span class="nav-number">2.</span> <span class="nav-text">2. 判断数组中的Object中是否存在某个满足条件的元素，并返回所有满足条件的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-3"><span class="nav-number">2.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-判断数组中的Object中是否存在某个key（键）"><span class="nav-number">3.</span> <span class="nav-text">3. 判断数组中的Object中是否存在某个key（键）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-4"><span class="nav-number">3.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">White</span>
+
+  
+
+  
+
+  <span class="post-meta-divider">|</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.0k字</span>
+</div>
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客人数: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_pv">
+    访问次量: <span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "Y7EUUkyGFrNTWpEJG0gyTh2K-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "Y7EUUkyGFrNTWpEJG0gyTh2K-gzGzoHsz",
+                'X-LC-Key': "voMf9IrLMAWKsm2zU0cpmEIh",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
