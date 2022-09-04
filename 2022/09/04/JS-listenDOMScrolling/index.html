@@ -119,19 +119,20 @@
 
 
 
-  <meta name="description" content="一、获取元素HTML：1&amp;lt;div id=&quot;myDom1&quot; class=&quot;my_dom_1&quot; /&amp;gt; JS方法：1const myDom = document.getElementById(&apos;myDom1&apos;) || &amp;#123;&amp;#125;; 更多获取DOM元素的方法详见：《JS-获取DOM元素的五种方法》  二、添加实时监听JS方法：1234567891011mounted() &amp;#12">
+  <meta name="description" content="介绍本文主要介绍通过JS中获取DOM元素，并通过getBoundingClientRect()实时监听DOM元素滑动过程中离页面边缘的距离。">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS-获取DOM元素滑动距离，并实时监听">
 <meta property="og:url" content="http://yoursite.com/2022/09/04/JS-listenDOMScrolling/index.html">
 <meta property="og:site_name" content="White&#39;s Blog">
-<meta property="og:description" content="一、获取元素HTML：1&amp;lt;div id=&quot;myDom1&quot; class=&quot;my_dom_1&quot; /&amp;gt; JS方法：1const myDom = document.getElementById(&apos;myDom1&apos;) || &amp;#123;&amp;#125;; 更多获取DOM元素的方法详见：《JS-获取DOM元素的五种方法》  二、添加实时监听JS方法：1234567891011mounted() &amp;#12">
+<meta property="og:description" content="介绍本文主要介绍通过JS中获取DOM元素，并通过getBoundingClientRect()实时监听DOM元素滑动过程中离页面边缘的距离。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2022/09/04/JS-listenDOMScrolling/1.gif">
-<meta property="og:updated_time" content="2022-09-04T10:09:42.947Z">
+<meta property="og:image" content="http://yoursite.com/2022/09/04/JS-listenDOMScrolling/1.gif">
+<meta property="og:updated_time" content="2022-09-04T10:21:43.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-获取DOM元素滑动距离，并实时监听">
-<meta name="twitter:description" content="一、获取元素HTML：1&amp;lt;div id=&quot;myDom1&quot; class=&quot;my_dom_1&quot; /&amp;gt; JS方法：1const myDom = document.getElementById(&apos;myDom1&apos;) || &amp;#123;&amp;#125;; 更多获取DOM元素的方法详见：《JS-获取DOM元素的五种方法》  二、添加实时监听JS方法：1234567891011mounted() &amp;#12">
+<meta name="twitter:description" content="介绍本文主要介绍通过JS中获取DOM元素，并通过getBoundingClientRect()实时监听DOM元素滑动过程中离页面边缘的距离。">
 <meta name="twitter:image" content="http://yoursite.com/2022/09/04/JS-listenDOMScrolling/1.gif">
 
 
@@ -369,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2022-09-04 15:28:08 / 修改时间：18:09:42" itemprop="dateCreated datePublished" datetime="2022-09-04T15:28:08+08:00">2022-09-04</time>
+              <time title="创建时间：2022-09-04 15:28:08 / 修改时间：18:21:43" itemprop="dateCreated datePublished" datetime="2022-09-04T15:28:08+08:00">2022-09-04</time>
             
 
             
@@ -444,7 +445,10 @@
       
 
       
-        <h3 id="一、获取元素"><a href="#一、获取元素" class="headerlink" title="一、获取元素"></a>一、获取元素</h3><h5 id="HTML："><a href="#HTML：" class="headerlink" title="HTML："></a>HTML：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myDom1"</span> <span class="attr">class</span>=<span class="string">"my_dom_1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文主要介绍通过JS中获取DOM元素，并通过getBoundingClientRect()实时监听DOM元素滑动过程中离页面边缘的距离。</p>
+<p><img src="/2022/09/04/JS-listenDOMScrolling/1.gif" alt="1" style="zoom:50%;"></p>
+<a id="more"></a>
+<h3 id="一、获取元素"><a href="#一、获取元素" class="headerlink" title="一、获取元素"></a>一、获取元素</h3><h5 id="HTML："><a href="#HTML：" class="headerlink" title="HTML："></a>HTML：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myDom1"</span> <span class="attr">class</span>=<span class="string">"my_dom_1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="JS方法："><a href="#JS方法：" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDom = <span class="built_in">document</span>.getElementById(<span class="string">'myDom1'</span>) || &#123;&#125;;</span><br></pre></td></tr></table></figure>
 <p>更多获取DOM元素的方法详见：<a href="https://timor419.github.io/2022/09/04/JS-getDOM/#more" target="_blank" rel="noopener">《JS-获取DOM元素的五种方法》</a></p>
 <hr>
@@ -789,7 +793,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、获取元素"><span class="nav-number">1.</span> <span class="nav-text">一、获取元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML："><span class="nav-number">1.0.1.</span> <span class="nav-text">HTML：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法："><span class="nav-number">1.0.2.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、添加实时监听"><span class="nav-number">2.</span> <span class="nav-text">二、添加实时监听</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、移除实时监听"><span class="nav-number">3.</span> <span class="nav-text">三、移除实时监听</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-2"><span class="nav-number">3.0.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、补充（数据异步的场景）"><span class="nav-number">4.</span> <span class="nav-text">四、补充（数据异步的场景）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-3"><span class="nav-number">4.0.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、获取元素"><span class="nav-number"></span> <span class="nav-text">一、获取元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML："><span class="nav-number">0.1.</span> <span class="nav-text">HTML：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法："><span class="nav-number">0.2.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、添加实时监听"><span class="nav-number"></span> <span class="nav-text">二、添加实时监听</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-1"><span class="nav-number">0.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、移除实时监听"><span class="nav-number"></span> <span class="nav-text">三、移除实时监听</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-2"><span class="nav-number">0.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、补充（数据异步的场景）"><span class="nav-number"></span> <span class="nav-text">四、补充（数据异步的场景）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS方法：-3"><span class="nav-number">0.1.</span> <span class="nav-text">JS方法：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -823,7 +827,7 @@
   <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.0k字</span>
+  <span class="post-count">博客全站共25.1k字</span>
 </div>
 </div>
 
