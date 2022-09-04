@@ -129,7 +129,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2022/09/04/JS-listenDOMScrolling/1.gif">
 <meta property="og:image" content="http://yoursite.com/2022/09/04/JS-listenDOMScrolling/1.gif">
-<meta property="og:updated_time" content="2022-09-04T10:21:43.701Z">
+<meta property="og:updated_time" content="2022-09-04T10:48:39.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-获取DOM元素滑动距离，并实时监听">
 <meta name="twitter:description" content="介绍本文主要介绍通过JS中获取DOM元素，并通过getBoundingClientRect()实时监听DOM元素滑动过程中离页面边缘的距离。">
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2022-09-04 15:28:08 / 修改时间：18:21:43" itemprop="dateCreated datePublished" datetime="2022-09-04T15:28:08+08:00">2022-09-04</time>
+              <time title="创建时间：2022-09-04 15:28:08 / 修改时间：18:48:39" itemprop="dateCreated datePublished" datetime="2022-09-04T15:28:08+08:00">2022-09-04</time>
             
 
             
@@ -460,6 +460,7 @@
 <hr>
 <h3 id="四、补充（数据异步的场景）"><a href="#四、补充（数据异步的场景）" class="headerlink" title="四、补充（数据异步的场景）"></a>四、补充（数据异步的场景）</h3><p>由于vue中数据和dom渲染由于是异步的，所以，要让dom结构随数据改变这样的操作都应该放进this.<code>$nextTick()</code>的回调函数中。（简单的理解，vue.js中this.<code>$nextTick()</code>就是起到了一个等待数据的作用，也就是说，将一些回调延迟，等到DOM更新之后再开始执行。简单点说，相当于setTimeout()的作用。）</p>
 <h5 id="JS方法：-3"><a href="#JS方法：-3" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">  <span class="keyword">this</span>.getData();</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, <span class="keyword">this</span>.handleScroll);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">   handleScroll() &#123;</span><br><span class="line">      <span class="keyword">const</span> scrollTop = <span class="keyword">this</span>.getScroll().top;</span><br><span class="line">      <span class="built_in">console</span>.log(scrollTop)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更多数据信息的获取，详见<a href="https://timor419.github.io/2022/09/03/JS-location/" target="_blank" rel="noopener">《JS-获取屏幕/显示器、浏览器、网页、DOM元素的宽高距离位置信息》</a></p>
 
       
     </div>
@@ -827,7 +828,7 @@
   <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.1k字</span>
+  <span class="post-count">博客全站共25.2k字</span>
 </div>
 </div>
 
