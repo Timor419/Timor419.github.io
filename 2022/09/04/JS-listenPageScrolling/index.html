@@ -127,12 +127,12 @@
 <meta property="og:site_name" content="White&#39;s Blog">
 <meta property="og:description" content="介绍本文主要介绍通过JS获取网页滑动距离，并实时监听的方法。分析document.body.scrollTop、document.documentElement.scrollTop、window.pageYOffset 三者之间的区别。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2022/09/04/JS-listenPageScrolling/JS-listenPageScrolling/1.gif">
-<meta property="og:updated_time" content="2022-09-04T06:53:46.048Z">
+<meta property="og:image" content="http://yoursite.com/2022/09/04/JS-listenPageScrolling/1.gif">
+<meta property="og:updated_time" content="2022-09-04T07:17:38.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-获取网页滑动距离，并实时监听">
 <meta name="twitter:description" content="介绍本文主要介绍通过JS获取网页滑动距离，并实时监听的方法。分析document.body.scrollTop、document.documentElement.scrollTop、window.pageYOffset 三者之间的区别。">
-<meta name="twitter:image" content="http://yoursite.com/2022/09/04/JS-listenPageScrolling/JS-listenPageScrolling/1.gif">
+<meta name="twitter:image" content="http://yoursite.com/2022/09/04/JS-listenPageScrolling/1.gif">
 
 
 
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2022-09-04 14:06:18 / 修改时间：14:53:46" itemprop="dateCreated datePublished" datetime="2022-09-04T14:06:18+08:00">2022-09-04</time>
+              <time title="创建时间：2022-09-04 14:06:18 / 修改时间：15:17:38" itemprop="dateCreated datePublished" datetime="2022-09-04T14:06:18+08:00">2022-09-04</time>
             
 
             
@@ -460,7 +460,7 @@
 <hr>
 <h3 id="二、添加实时监听"><a href="#二、添加实时监听" class="headerlink" title="二、添加实时监听"></a>二、添加实时监听</h3><h5 id="JS方法：-1"><a href="#JS方法：-1" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, <span class="keyword">this</span>.handleScroll);</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">   handleScroll() &#123;</span><br><span class="line">      <span class="keyword">const</span> scrollTop = <span class="keyword">this</span>.getScroll().top;</span><br><span class="line">      <span class="built_in">console</span>.log(scrollTop)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果如下：</p>
-<p><img src="/2022/09/04/JS-listenPageScrolling/./JS-listenPageScrolling/1.gif" alt="1" style="zoom:50%;"></p>
+<p><img src="/2022/09/04/JS-listenPageScrolling/1.gif" alt="1" style="zoom:50%;"></p>
 <hr>
 <h3 id="三、移除实时监听"><a href="#三、移除实时监听" class="headerlink" title="三、移除实时监听"></a>三、移除实时监听</h3><h5 id="JS方法：-2"><a href="#JS方法：-2" class="headerlink" title="JS方法："></a>JS方法：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">destroyed() &#123;</span><br><span class="line">   <span class="built_in">window</span>.removeEventListener(<span class="string">'scroll'</span>, <span class="keyword">this</span>.handleScroll);</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
 
@@ -495,7 +495,7 @@
   <p><span>本文标题:</span><a href="/2022/09/04/JS-listenPageScrolling/">JS-获取网页滑动距离，并实时监听</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 White 的个人博客">White</a></p>
   <p><span>发布时间:</span>2022年09月04日 - 14:09</p>
-  <p><span>最后更新:</span>2022年09月04日 - 14:09</p>
+  <p><span>最后更新:</span>2022年09月04日 - 15:09</p>
   <p><span>原始链接:</span><a href="/2022/09/04/JS-listenPageScrolling/" title="JS-获取网页滑动距离，并实时监听">http://yoursite.com/2022/09/04/JS-listenPageScrolling/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2022/09/04/JS-listenPageScrolling/"  aria-label="复制成功！"></i></span>
   </p>
@@ -549,6 +549,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/09/04/JS-listenDOMScrolling/" rel="prev" title="JS-获取DOM元素滑动距离，并实时监听">
+                JS-获取DOM元素滑动距离，并实时监听 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -622,7 +626,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -830,7 +834,7 @@
   <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.1k字</span>
+  <span class="post-count">博客全站共25.0k字</span>
 </div>
 </div>
 
